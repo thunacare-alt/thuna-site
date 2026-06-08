@@ -6,9 +6,8 @@ const {
   description = "Twelve home visits a year, every reading reviewed by a doctor. Catch drift before symptoms — what an annual checkup never could. Now serving Dwarka and Faridabad.",
 } = Astro.props;
 
-// Canonical / social URL = the live deployment. When thuna.in is pointed at this
-// repo, change `site` in astro.config to https://thuna.in and base to '/'.
-const pageUrl = "https://thunacare-alt.github.io/thuna-site/";
+// Canonical / social URL = the custom domain.
+const pageUrl = "https://www.thuna.in/";
 const ogImage = pageUrl + "og-image.png";
 ---
 
@@ -63,7 +62,7 @@ const ogImage = pageUrl + "og-image.png";
       "@type": "MedicalBusiness",
       name: "Thuna.Care",
       description: description,
-      url: "https://thuna.in/",
+      url: "https://www.thuna.in/",
       email: "care@thuna.in",
       telephone: "+91-88912-30464",
       priceRange: "₹₹",

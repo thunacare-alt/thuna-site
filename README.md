@@ -4,7 +4,9 @@ Modern marketing landing page for **Thuna.Care** — continuous, at-home prevent
 health monitoring for Indian families. Built with [Astro](https://astro.build)
 (static output) and deployed to GitHub Pages.
 
-**Live:** https://thunacare-alt.github.io/thuna-site/
+**Live:** https://www.thuna.in (custom domain via GitHub Pages; `base: '/'`).
+Until the founder's DNS at Hostinger propagates, it also serves at
+https://thunacare-alt.github.io/thuna-site/ which then redirects to the domain.
 
 ## Stack
 - Astro (static), no runtime JS framework — a single long landing page.
