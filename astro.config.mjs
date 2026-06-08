@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
 
 // Static marketing site for Thuna.Care.
 // Deployed to GitHub Pages as a PROJECT site: https://thunacare-alt.github.io/thuna-site/
@@ -12,4 +13,5 @@ export default defineConfig({
   trailingSlash: 'ignore',
   build: { assets: 'assets' },
   compressHTML: true,
+  integrations: [react()],
 });

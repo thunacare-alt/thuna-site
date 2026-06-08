@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../hero/Hero.tsx";
 
 // ---- contact ----
 const PHONE = "919810519812"; // +91 98105 19812
@@ -13,6 +14,7 @@ const WA_SINGLE = wa("Hi Thuna — I'd like to book a single home visit (₹500)
 const I = {
   whatsapp: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.62-5.962C.122 5.281 5.4 0 12.057 0c3.262 0 6.323 1.27 8.624 3.575 2.3 2.302 3.57 5.364 3.568 8.624 0 6.654-5.282 11.934-11.934 11.934a11.86 11.86 0 01-5.71-1.456L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.83 9.83 0 001.516 5.26l-.999 3.648 3.972-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>`,
   arrow: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`,
+  play: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>`,
   check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`,
   mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
   pulse: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
@@ -119,49 +121,44 @@ const faqs = [
   <main id="main">
     <span id="top"></span>
 
-    <!-- ============== HERO ============== -->
-    <section class="hero">
+    <!-- ============== INTERACTIVE HERO ============== -->
+    <section class="hero" id="hero">
       <div class="hero__bg" aria-hidden="true"></div>
-      <div class="wrap hero__grid">
-        <div class="hero__copy reveal in">
+      <div class="wrap wrap--wide hero__top">
+        <div class="hero__intro">
           <span class="eyebrow">Thuna.Care · Now serving NCR</span>
-          <h1>Care that <span class="accent-it">stays&nbsp;with&nbsp;you.</span></h1>
+          <h1 class="hero__h1">Care that <span class="accent-it">stays with you.</span></h1>
           <p class="hero__sub">
             A Thuna companion visits your home every month — vitals checked, every reading
-            reviewed by an MD, your whole family in the loop. Preventive care that catches
-            small changes early, long before they become an emergency.
+            reviewed by an MD, your whole family in the loop.
           </p>
-          <div class="hero__cta">
-            <a class="btn btn--primary btn--lg" href={WA_BOOK} set:html={`${I.whatsapp}<span>Book a visit</span>`}></a>
-            <a class="btn btn--ghost btn--lg" href="#how" set:html={`<span>See how it works</span>${I.arrow}`}></a>
-          </div>
-          <p class="hero__note">₹500 / month&nbsp; · &nbsp;Twelve home visits a year&nbsp; · &nbsp;Cancel anytime</p>
         </div>
-
-        <figure class="hero__media reveal in">
-          <div class="video-frame" id="videoFrame">
-            <video
-              id="heroVideo"
-              src="hero.mp4"
-              poster="hero-poster.jpg"
-              muted
-              loop
-              autoplay
-              playsinline
-              preload="metadata"
-              aria-label="Thuna.Care — a companion visiting a family at home"
-            ></video>
-            <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false" aria-label="Unmute video" set:html={I.volOff}></button>
-            <div class="video-frame__badge"><span class="dot"></span> 35-sec film</div>
+        <div class="hero__actions">
+          <div class="hero__btns">
+            <a class="btn btn--primary btn--lg" href={WA_BOOK} set:html={`${I.whatsapp}<span>Book a visit</span>`}></a>
+            <button class="btn btn--ghost btn--lg" id="watchFilm" type="button" set:html={`${I.play}<span>Watch the 35-sec film</span>`}></button>
           </div>
-        </figure>
+          <p class="hero__note">₹500 / month · Twelve home visits a year · Cancel anytime</p>
+        </div>
       </div>
 
-      <!-- trust strip -->
+      <div class="wrap wrap--wide hero__stage-wrap">
+        <Hero client:only="react" />
+      </div>
+    </section>
+
+    <!-- ============== EMOTIONAL OPENING ============== -->
+    <section class="section opening" id="why-exist">
       <div class="wrap">
-        <p class="trustline reveal">
-          <strong>Twelve home visits a year, every reading reviewed by an MD.</strong>
-          Catch drift before symptoms — what an annual checkup never could.
+        <span class="eyebrow reveal">Why we exist</span>
+        <p class="display opening__line reveal">
+          The people you love don't fall ill on a schedule.
+          <span class="accent-it">So why check on them just once a year?</span>
+        </p>
+        <p class="opening__sub reveal">
+          Thuna brings the check-up home — every month — and reads the <em>trend</em>, not the
+          snapshot. The small drifts an annual visit sleeps through are exactly the ones we're
+          built to catch. <strong>Twelve home visits a year, every reading reviewed by an MD.</strong>
         </p>
       </div>
     </section>
@@ -456,6 +453,15 @@ const faqs = [
     <div class="sticky-cta__txt"><b>₹500 / month</b><span>12 visits a year</span></div>
     <a class="btn btn--primary" href={WA_BOOK} set:html={`${I.whatsapp}<span>Book a visit</span>`}></a>
   </div>
+
+  <!-- ============== WATCH-THE-FILM MODAL ============== -->
+  <div class="film-modal" id="filmModal" hidden>
+    <div class="film-modal__backdrop" data-close></div>
+    <div class="film-modal__box" role="dialog" aria-modal="true" aria-label="Thuna.Care — the 35-second film">
+      <button class="film-modal__close" data-close type="button" aria-label="Close film">×</button>
+      <video id="filmVideo" src="hero.mp4" poster="hero-poster.jpg" controls playsinline preload="none"></video>
+    </div>
+  </div>
 </Layout>
 
 <style>
@@ -481,32 +487,46 @@ const faqs = [
   .mobile-menu a:not(.btn) { padding: 13px 6px; text-decoration: none; color: var(--ink); font-weight: 500; border-bottom: 1px solid var(--line); }
   .mobile-menu .btn { margin-top: 12px; }
 
-  /* ---------------- HERO ---------------- */
-  .hero { position: relative; padding-top: clamp(34px, 6vw, 70px); padding-bottom: clamp(40px, 6vw, 72px); overflow: hidden; }
+  /* ---------------- INTERACTIVE HERO ---------------- */
+  .hero { position: relative; overflow: clip; display: flex; flex-direction: column; min-height: clamp(560px, calc(100svh - 72px), 940px); padding-top: clamp(10px, 2vw, 24px); padding-bottom: clamp(16px, 2.5vw, 30px); }
+  .hero__stage-wrap { flex: 1 1 auto; min-height: 440px; display: flex; }
   .hero__bg { position: absolute; inset: 0; z-index: -1;
     background:
-      radial-gradient(60% 60% at 78% 18%, rgba(27,67,50,.07), transparent 70%),
-      radial-gradient(50% 50% at 12% 90%, rgba(201,123,92,.06), transparent 70%),
-      linear-gradient(180deg, var(--cream-soft), #fff 60%); }
-  .hero__grid { display: grid; grid-template-columns: 1.04fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-  .hero__copy h1 { font-size: clamp(42px, 7vw, 76px); line-height: 1.0; margin: 20px 0 0; font-weight: 450; }
-  .hero__sub { margin-top: 24px; font-size: clamp(17px, 1.6vw, 19.5px); color: var(--body); max-width: 540px; }
-  .hero__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
-  .hero__note { margin-top: 20px; font-size: 14px; color: var(--muted); font-weight: 500; }
+      radial-gradient(52% 46% at 84% 6%, rgba(27,67,50,.06), transparent 70%),
+      radial-gradient(42% 42% at 6% 94%, rgba(201,123,92,.05), transparent 70%),
+      linear-gradient(180deg, var(--cream-soft), #fff 55%); }
+  .hero__top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 40px; padding-top: clamp(6px, 1.6vw, 18px); padding-bottom: clamp(18px, 2.6vw, 30px); }
+  .hero__intro { max-width: 660px; }
+  .hero__h1 { font-size: clamp(40px, 6.4vw, 76px); line-height: .98; margin: 16px 0 0; font-weight: 440; }
+  .hero__h1 .accent-it { display: block; }
+  .hero__sub { margin-top: 18px; font-size: clamp(16px, 1.5vw, 19px); color: var(--body); max-width: 520px; }
+  .hero__actions { display: flex; flex-direction: column; align-items: flex-start; gap: 13px; padding-bottom: 4px; }
+  .hero__btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero__note { font-size: 13.5px; color: var(--muted); font-weight: 500; }
 
-  .hero__media { margin: 0; }
-  .video-frame { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 16 / 10; background: #0d1f17; box-shadow: var(--shadow-lg); border: 1px solid rgba(27,67,50,.08); }
-  .video-frame video { width: 100%; height: 100%; object-fit: cover; }
-  .video-frame.is-portrait { aspect-ratio: 9 / 16; max-width: 330px; margin-inline: auto; }
-  .sound-toggle { position: absolute; right: 14px; bottom: 14px; width: 46px; height: 46px; border-radius: 50%; border: none; background: rgba(13,31,23,.55); color: #fff; backdrop-filter: blur(6px); display: grid; place-items: center; transition: background .2s, transform .2s; }
-  .sound-toggle svg { width: 20px; height: 20px; }
-  .sound-toggle:hover { background: rgba(13,31,23,.78); transform: scale(1.06); }
-  .video-frame__badge { position: absolute; left: 14px; top: 14px; display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; letter-spacing: .03em; color: #fff; background: rgba(13,31,23,.5); backdrop-filter: blur(6px); padding: 6px 11px; border-radius: 100px; }
-  .video-frame__badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #ff5b5b; box-shadow: 0 0 0 0 rgba(255,91,91,.6); animation: pulse 2s infinite; }
-  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(255,91,91,.5)} 70%{box-shadow:0 0 0 7px rgba(255,91,91,0)} 100%{box-shadow:0 0 0 0 rgba(255,91,91,0)} }
+  /* the React island manages its own heights (sticky scrub on touch) */
+  .hero-stage:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+  .hero-hint__arrow { display: inline-flex; animation: hintNudge 1.3s ease-in-out infinite; }
+  @keyframes hintNudge { 0%,100%{ transform: translateX(0) } 50%{ transform: translateX(6px) } }
+  @media (prefers-reduced-motion: reduce){ .hero-hint__arrow { animation: none; } }
 
-  .trustline { margin-top: clamp(34px, 5vw, 56px); padding-top: clamp(28px, 4vw, 40px); border-top: 1px solid var(--line); font-size: clamp(17px, 2vw, 21px); color: var(--muted); max-width: 860px; font-family: var(--serif); font-weight: 380; }
-  .trustline strong { color: var(--ink); font-weight: 540; }
+  /* ---------------- EMOTIONAL OPENING ---------------- */
+  .opening { padding-block: clamp(74px, 11vw, 150px); }
+  .opening .eyebrow { margin-bottom: 26px; }
+  .opening__line { max-width: 1000px; }
+  .opening__sub { margin-top: 34px; max-width: 680px; font-size: clamp(18px, 2vw, 21px); line-height: 1.65; color: var(--muted); }
+  .opening__sub strong { color: var(--ink); font-weight: 600; }
+  .opening__sub em { color: var(--green); font-style: italic; }
+
+  /* ---------------- FILM MODAL ---------------- */
+  .film-modal { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 20px; }
+  .film-modal__backdrop { position: absolute; inset: 0; background: rgba(13,24,18,.74); backdrop-filter: blur(6px); animation: fadeIn .3s ease; }
+  .film-modal__box { position: relative; width: min(960px, 96vw); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg); background: #0d1f17; animation: popIn .35s cubic-bezier(.2,.8,.2,1); }
+  .film-modal__box video { width: 100%; display: block; aspect-ratio: 16/9; background: #0d1f17; }
+  .film-modal__close { position: absolute; top: 10px; right: 10px; z-index: 2; width: 42px; height: 42px; border-radius: 50%; border: none; background: rgba(255,255,255,.16); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; backdrop-filter: blur(6px); transition: background .2s; }
+  .film-modal__close:hover { background: rgba(255,255,255,.3); }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+  @keyframes popIn { from{opacity:0; transform: scale(.94)} to{opacity:1; transform:none} }
 
   /* ---------------- VALUE PROPS ---------------- */
   .props { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
@@ -660,9 +680,8 @@ const faqs = [
   @media (max-width: 960px) {
     .nav__links, .nav__cta { display: none; }
     .nav__burger { display: flex; }
-    .hero__grid { grid-template-columns: 1fr; }
-    .hero__media { order: -1; }
-    .video-frame { aspect-ratio: 16/10; max-width: 560px; margin-inline: auto; }
+    .hero__top { flex-direction: column; align-items: flex-start; }
+    .hero__actions { align-items: flex-start; width: 100%; }
     .props, .quotes { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr; }
     .measure, .case, .plans, .area { grid-template-columns: 1fr; }
@@ -672,7 +691,11 @@ const faqs = [
   @media (max-width: 600px) {
     .sticky-cta { display: flex; }
     main { padding-bottom: 76px; }
-    .hero__cta .btn, .cta__actions .btn, .hero__cta, .cta__actions { width: 100%; }
+    .hero { min-height: auto; }
+    .hero__stage-wrap { min-height: 380px; }
+    .hero__btns { width: 100%; }
+    .hero__btns .btn { flex: 1 1 auto; justify-content: center; }
+    .cta__actions .btn, .cta__actions { width: 100%; }
     .footer__inner { grid-template-columns: 1fr; gap: 26px; }
     .footer__base { justify-content: flex-start; }
     .plan__price .amt { font-size: 40px; }
@@ -698,34 +721,25 @@ const faqs = [
     a.addEventListener('click', () => { menu.hidden = true; burger?.setAttribute('aria-expanded', 'false'); })
   );
 
-  // --- hero video: muted autoplay + sound toggle + mobile source swap ---
-  const video = document.getElementById('heroVideo');
-  const frame = document.getElementById('videoFrame');
-  const toggle = document.getElementById('soundToggle');
-  const ICON_ON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>`;
-  const ICON_OFF = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>`;
-
-  if (video) {
-    // use the vertical cut on small portrait screens for better framing
-    if (window.matchMedia('(max-width: 600px)').matches) {
-      video.setAttribute('src', 'hero-mobile.mp4');
-      frame?.classList.add('is-portrait');
-      video.load();
-    }
-    video.muted = true;
-    const tryPlay = () => video.play().catch(() => {});
-    tryPlay();
-    video.addEventListener('loadeddata', tryPlay, { once: true });
-
-    toggle?.addEventListener('click', () => {
-      video.muted = !video.muted;
-      if (!video.muted) tryPlay();
-      const muted = video.muted;
-      toggle.innerHTML = muted ? ICON_OFF : ICON_ON;
-      toggle.setAttribute('aria-pressed', String(!muted));
-      toggle.setAttribute('aria-label', muted ? 'Unmute video' : 'Mute video');
-    });
-  }
+  // --- "Watch the film" modal ---
+  const filmBtn = document.getElementById('watchFilm');
+  const filmModal = document.getElementById('filmModal');
+  const filmVideo = document.getElementById('filmVideo');
+  const openFilm = () => {
+    if (!filmModal) return;
+    filmModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    if (filmVideo) { filmVideo.currentTime = 0; filmVideo.play().catch(() => {}); }
+  };
+  const closeFilm = () => {
+    if (!filmModal) return;
+    filmModal.hidden = true;
+    document.body.style.overflow = '';
+    if (filmVideo) filmVideo.pause();
+  };
+  filmBtn?.addEventListener('click', openFilm);
+  filmModal?.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', closeFilm));
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && filmModal && !filmModal.hidden) closeFilm(); });
 
   // --- scroll reveal ---
   const io = new IntersectionObserver((entries) => {
