@@ -145,26 +145,42 @@ p  { margin: 0; }
 .phero--fallback .phero__fallback-svg { display: block; position: absolute; top: 50%; left: 56%; width: 46%; transform: translate(-50%, -50%); opacity: .85; }
 @media (max-width: 760px) { .phero__light { display: none; } }
 
-/* ---------- HOW WE WORK (written, numbered vertical flow) ---------- */
-.how-steps { list-style: none; margin: 0; padding: 0; max-width: 770px; }
-.how-step { display: flex; gap: 22px; padding-bottom: 34px; position: relative; }
-.how-step:last-child { padding-bottom: 0; }
-.how-step::before { content: ""; position: absolute; left: 23px; top: 52px; bottom: 0; width: 2px; background: var(--tint-edge); }
-.how-step:last-child::before { display: none; }
-.how-step__n { flex: none; width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, #2F6BF0, var(--blue-dark)); color: #fff; font-weight: 800; font-size: 19px; letter-spacing: -0.02em; display: grid; place-items: center; box-shadow: 0 8px 18px -8px rgba(37,99,235,.55); position: relative; z-index: 1; }
-.how-step__body { padding-top: 4px; }
-.how-step__body h3 { font-size: clamp(19px, 2.2vw, 23px); margin-bottom: 7px; }
-.how-step__body p { color: var(--slate); font-size: 16px; line-height: 1.6; max-width: 560px; }
-.how-cta { margin-top: clamp(40px, 6vw, 60px); max-width: 770px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 24px; padding: 24px 30px; border-radius: var(--r-hero); background: var(--surface); border: 1px solid var(--tint-edge); box-shadow: var(--sh-look); }
-.how-cta p { font-size: clamp(16px, 1.7vw, 18px); color: var(--ink); font-weight: 500; }
-.how-cta p strong { color: var(--blue); font-weight: 800; }
-@media (max-width: 600px) {
-  .how-step { gap: 16px; }
-  .how-step__n { width: 42px; height: 42px; font-size: 17px; }
-  .how-step::before { left: 20px; }
-  .how-cta { flex-direction: column; align-items: stretch; text-align: left; }
-  .how-cta .btn { width: 100%; justify-content: center; }
+/* ---------- HOW / scroll story flow (targets React-island DOM → must be global) ---------- */
+.how { background: #fff; }
+.how__intro { padding-top: clamp(88px, 11vw, 168px); padding-bottom: clamp(8px, 2vw, 28px); }
+.flow { position: relative; }
+.flow__stage { position: sticky; top: 0; height: 100vh; display: grid; grid-template-columns: 0.92fr 1.1fr; align-items: center; gap: clamp(24px, 4vw, 64px); max-width: 1280px; margin-inline: auto; padding: 0 var(--pad); }
+.flow__bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: rgba(37,99,235,.12); }
+.flow__bar i { display: block; height: 100%; background: linear-gradient(90deg, #2F6BF0, var(--blue-dark)); border-radius: 0 3px 3px 0; }
+.flow__text { position: relative; min-height: 340px; }
+.flow__panel { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; transition: opacity .45s ease, transform .45s ease; }
+.flow__num { font-size: 15px; font-weight: 800; letter-spacing: .08em; color: var(--blue); opacity: .55; }
+.flow__time { align-self: flex-start; margin-top: 14px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--blue); background: var(--tint); padding: 6px 13px; border-radius: 100px; }
+.flow__title { font-size: clamp(28px, 3.4vw, 46px); font-weight: 800; letter-spacing: -.03em; color: var(--ink); margin-top: 18px; line-height: 1.04; }
+.flow__body { font-size: clamp(16px, 1.5vw, 18.5px); color: var(--slate); margin-top: 16px; max-width: 440px; line-height: 1.6; }
+.flow__scene { position: relative; height: min(74vh, 660px); border-radius: 28px; background: linear-gradient(180deg, #FBFDFF, #EAF1FE); box-shadow: inset 0 0 0 1px rgba(37,99,235,.08), 0 40px 90px -34px rgba(15,23,42,.32); overflow: hidden; }
+.flow__scene-scrim { position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 -50px 60px -42px rgba(234,241,254,.95); }
+.flow__rail { position: absolute; left: 0; right: 0; bottom: 22px; z-index: 5; list-style: none; margin: 0; padding: 0; display: flex; gap: 9px; align-items: center; justify-content: center; }
+.flow__rail button { width: 9px; height: 9px; padding: 0; border: none; border-radius: 999px; background: rgba(37,99,235,.24); cursor: pointer; transition: width .3s ease, background .3s ease; }
+.flow__rail button.on { width: 26px; background: var(--blue); }
+.flow-static { list-style: none; margin: clamp(20px,4vw,48px) auto 0; padding: 0 var(--pad) clamp(88px,11vw,168px); display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: var(--maxw); }
+.how.flow-ready .flow-static { display: none; }
+.hero-stage:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.hero-hint__arrow { display: inline-flex; animation: hintNudge 1.3s ease-in-out infinite; }
+@keyframes hintNudge { 0%,100%{ transform: translateX(0) } 50%{ transform: translateX(6px) } }
+@media (max-width: 980px) {
+  .flow__stage { grid-template-columns: 1fr; grid-auto-rows: min-content; align-content: center; gap: 18px; }
+  .flow__scene { order: -1; height: min(46vh, 420px); }
+  .flow__text { min-height: 220px; text-align: center; align-items: center; }
+  .flow__panel { align-items: center; }
+  .flow__body { margin-inline: auto; }
+  .flow-static { grid-template-columns: 1fr; }
 }
+@media (max-width: 600px) {
+  .flow__scene { height: 42vh; }
+  .flow__title { font-size: clamp(24px, 7vw, 32px); }
+}
+@media (prefers-reduced-motion: reduce) { .hero-hint__arrow { animation: none; } }
 
 /* skip link / sr-only */
 .skip { position: absolute; left: 12px; top: -60px; z-index: 200; background: var(--blue); color: #fff; padding: 10px 16px; border-radius: 8px; text-decoration: none; transition: top .2s; }
