@@ -3,7 +3,7 @@ import "../styles/global.css";
 
 const {
   title = "Thuna.Care — Continuous health monitoring for your family",
-  description = "Twelve home visits a year, every reading reviewed by an MD. Catch drift before symptoms — what an annual checkup never could. Now serving the NCR region.",
+  description = "Twelve home visits a year, every reading reviewed by a doctor. Catch drift before symptoms — what an annual checkup never could. Now serving Dwarka and Faridabad.",
 } = Astro.props;
 
 // Canonical / social URL = the live deployment. When thuna.in is pointed at this
@@ -25,7 +25,7 @@ const ogImage = pageUrl + "og-image.png";
     <meta name="theme-color" content="#2563EB" />
     <meta name="color-scheme" content="light" />
     <meta name="author" content="Thuna Health" />
-    <meta name="keywords" content="home health monitoring, preventive care, family health, NCR, home doctor visit, vitals at home, ECG at home, MD review, continuous health monitoring India" />
+    <meta name="keywords" content="home health monitoring, preventive care, family health, Dwarka, Faridabad, home doctor visit, vitals at home, ECG at home, doctor review, continuous health monitoring India" />
 
     <!-- favicons -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -36,7 +36,7 @@ const ogImage = pageUrl + "og-image.png";
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Thuna.Care" />
     <meta property="og:title" content="Thuna.Care — Care that stays with you" />
-    <meta property="og:description" content="Continuous health monitoring for your family. Twelve home visits a year. Drift caught before symptoms. Now serving the NCR region." />
+    <meta property="og:description" content="Continuous health monitoring for your family. Twelve home visits a year. Drift caught before symptoms. Now serving Dwarka and Faridabad." />
     <meta property="og:url" content={pageUrl} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
@@ -46,7 +46,7 @@ const ogImage = pageUrl + "og-image.png";
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Thuna.Care — Care that stays with you" />
-    <meta name="twitter:description" content="Twelve home visits a year. Every reading reviewed by an MD. Drift caught before symptoms. Continuous health monitoring for Indian families." />
+    <meta name="twitter:description" content="Twelve home visits a year. Every reading reviewed by a doctor. Drift caught before symptoms. Continuous health monitoring for Indian families." />
     <meta name="twitter:image" content={ogImage} />
 
     <!-- fonts -->
@@ -65,9 +65,9 @@ const ogImage = pageUrl + "og-image.png";
       description: description,
       url: "https://thuna.in/",
       email: "care@thuna.in",
-      telephone: "+91-98105-19812",
+      telephone: "+91-88912-30464",
       priceRange: "₹₹",
-      areaServed: { "@type": "Place", name: "NCR region, India (Delhi, Gurugram, Noida, Faridabad)" },
+      areaServed: { "@type": "Place", name: "Dwarka and Faridabad, India" },
       medicalSpecialty: "PreventiveMedicine",
       image: ogImage,
     })} />

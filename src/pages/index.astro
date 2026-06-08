@@ -1,10 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ParticleHero from "../hero/ParticleHero.tsx";
-import StoryFlow from "../hero/StoryFlow.tsx";
 
 // ---- contact ----
-const PHONE = "919810519812";
+const PHONE = "918891230464";
 const EMAIL = "care@thuna.in";
 const wa = (msg) => `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
 const WA_BOOK = wa("Hi Thuna — I'd like to book a home visit. My city + household size: ");
@@ -35,19 +34,10 @@ const appScreens = [
   { src: "app/profile.webp", label: "Profile", note: "Reports, visit history and family settings." },
 ];
 
-const steps = [
-  { n: "01", t: "A companion arrives", time: "Monthly, at home", d: "Background-checked, ID-verified, trained in our six-week home-care protocol. The same familiar faces every month — not a different stranger each time." },
-  { n: "02", t: "A few simple questions", time: "First 5 minutes", d: "We start with a short profile: how you've been, sleep, diet, anything new since last visit. The context that numbers alone can't show." },
-  { n: "03", t: "Vitals at the dining table", time: "~15 minutes", d: "Blood pressure, ECG, blood glucose, SpO₂, temperature, pulse and weight — recorded into your family's record and explained as we go." },
-  { n: "04", t: "Labs at home, only when needed", time: "When a trend flags", d: "If something is drifting, a registered Nursing Assistant draws bloods at home and we order the right test from an NABL-accredited partner lab. Never on a fixed calendar." },
-  { n: "05", t: "An MD reviews every reading", time: "Same day", d: "Each reading lands beside your last eleven. An MD reviews the trend virtually the same day and flags anything drifting — before symptoms appear." },
-  { n: "06", t: "The whole family follows along", time: "Within the hour", d: "A plain-language summary lands in the app and on WhatsApp. Everyone stays in the loop — no panic, just continuity." },
-];
-
 const props = [
   { icon: I.pulse, t: "Continuous, not episodic", d: "Twelve readings a year per parameter, not one. We replace the annual snapshot with a year-long trend line." },
   { icon: I.users, t: "The family, not the individual", d: "One household, one record, one monthly visit — up to four members. Health you finally talk about together." },
-  { icon: I.route, t: "Routed, not abandoned", d: "Drift detected → a virtual MD or a partner lab, the same week, at member rates. A number is never left for you to decode alone." },
+  { icon: I.route, t: "Routed, not abandoned", d: "Drift detected → a virtual doctor or a partner lab, the same week, at member rates. A number is never left for you to decode alone." },
 ];
 
 const vitalsEvery = ["Blood Pressure", "Pulse + ECG", "SpO₂", "Temperature", "Blood Glucose", "BMI + Waist", "Haemoglobin"];
@@ -55,7 +45,7 @@ const vitalsTrigger = ["HbA1c (3-mo sugar)", "Lipid profile", "Kidney function",
 
 const caseTimeline = [
   { tag: "Visit 12 · Day 0", d: "141 / 88 mmHg. Drift flagged: +15% over four months." },
-  { tag: "MD review · same day", d: "Same-day virtual review. Orders HbA1c + lipids." },
+  { tag: "Doctor review · same day", d: "Same-day virtual review. Orders HbA1c + lipids." },
   { tag: "Partner lab · Day 4", d: "HbA1c 6.1 (prediabetic). Lipids elevated. Drawn at home." },
   { tag: "Doctor consult · Day 9", d: "Lifestyle plan started. No medication needed." },
 ];
@@ -66,30 +56,30 @@ const testimonials = [
   { q: "What I didn't expect: the app summaries. My mother reads them. My sister reads them. We finally talk about my parents' health as a family — not in a panic.", n: "Priya M.", m: "Family of 5" },
 ];
 
-const areas = ["Dwarka", "Gurugram", "South Delhi", "Noida", "Faridabad"];
+const areas = ["Dwarka", "Faridabad"];
 
 const annualIncludes = [
   "Up to 4 family members covered",
   "12 home visits a year",
   "Continuous monitoring + longitudinal record",
-  "Same-day virtual MD review of every reading",
+  "Same-day virtual doctor review of every reading",
   "Member-rate doctor consults + partner labs",
   "Family report in the app + on WhatsApp",
 ];
 const singleIncludes = [
   "1 home visit · readings for up to 2 people",
-  "1 MD follow-up call within the week",
-  "Same-day virtual MD review of every reading",
+  "1 doctor follow-up call within the week",
+  "Same-day virtual doctor review of every reading",
   "Convert to the annual plan anytime",
 ];
 
 const faqs = [
   { q: "Why subscription, not pay-per-visit?", a: "Because prevention is a trend, not a snapshot. A subscription means twelve visits a year, so every reading lands beside your last eleven — that's what lets us catch drift before it becomes a diagnosis. Pay-per-visit gives you a number; the annual plan gives you a story. You can still try us with a single visit first, and convert anytime." },
-  { q: "Who actually visits the home?", a: "A trained companion — background-checked, ID-verified and put through our six-week home-care protocol. You see the same faces each visit. When blood needs to be drawn, a registered Nursing Assistant attends instead. Every reading is then reviewed by an MD virtually, the same day." },
-  { q: "Which areas do you serve?", a: "We're live across the NCR region — including Dwarka, Gurugram, South Delhi, Noida and Faridabad, with companions active in 11 sectors and an average travel radius of about 30 minutes. Tell us your locality on WhatsApp and we'll confirm the next available slot." },
-  { q: "Is my family's data private?", a: "Yes. Thuna is DPDPA-compliant. Your records are consented, structured and used only to track your health over time and flag drift for MD review. Lab work runs through NABL-accredited partner labs, and we never sell your data." },
+  { q: "Who actually visits the home?", a: "A trained companion — background-checked, ID-verified and put through our six-week home-care protocol. You see the same faces each visit. When blood needs to be drawn, a registered Nursing Assistant attends instead. Every reading is then reviewed by a doctor virtually, the same day." },
+  { q: "Which areas do you serve?", a: "We're live in Dwarka and Faridabad, with an average travel radius of about 30 minutes. Tell us your locality on WhatsApp and we'll confirm the next available slot." },
+  { q: "Is my family's data private?", a: "Yes. Thuna is DPDPA-compliant. Your records are consented, structured and used only to track your health over time and flag drift for doctor review. Lab work runs through NABL-accredited partner labs, and we never sell your data." },
   { q: "What about doctor consults and lab tests?", a: "They sit on top of the subscription at member rates — discounted versus market and billed only when used. If a trend flags something, we line up a virtual doctor consult (from ₹299) or order the right deeper test from an NABL-accredited partner lab (HbA1c from ₹349, lipid profile from ₹399), often drawn at home. Only when your trend warrants it — never a fixed schedule." },
-  { q: "What if there's an emergency?", a: "Emergency ambulance routing is included (partner-billed), and if a reading needs urgent attention our MD review flags it the same day and routes you onward. Thuna is preventive monitoring, not a 24/7 emergency room — but you're never left to interpret a worrying number on your own." },
+  { q: "What if there's an emergency?", a: "Emergency ambulance routing is included (partner-billed), and if a reading needs urgent attention our doctor review flags it the same day and routes you onward. Thuna is preventive monitoring, not a 24/7 emergency room — but you're never left to interpret a worrying number on your own." },
   { q: "How does cancellation work?", a: "Cancel anytime — there's no lock-in. The annual plan is the best way to build a longitudinal record, and the single-visit option lets you try Thuna once before committing to the year." },
 ];
 
@@ -103,7 +93,6 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
       <a class="brand" href="#top" aria-label="thuna.care home" set:html={Wordmark}></a>
       <nav class="nav__links" aria-label="Primary">
         <a href="#app">The app</a>
-        <a href="#how">How it works</a>
         <a href="#measure">What we measure</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
@@ -117,7 +106,6 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
     </div>
     <div class="mobile-menu" id="mobile-menu" hidden>
       <a href="#app">The app</a>
-      <a href="#how">How it works</a>
       <a href="#measure">What we measure</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
@@ -135,7 +123,7 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
       <div class="hero__veil" aria-hidden="true"></div>
       <div class="wrap wrap--wide hero__overlay">
         <div class="hero__intro">
-          <span class="eyebrow">Continuous home health · Now serving NCR</span>
+          <span class="eyebrow">Continuous home health · Now serving Dwarka &amp; Faridabad</span>
           <h1 class="hero__h1">Care that <span class="accent">stays with you.</span></h1>
           <p class="hero__cap" id="heroCap">Every heartbeat, watched at home.</p>
           <div class="hero__btns">
@@ -159,7 +147,7 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
         <p class="opening__sub reveal">
           Thuna brings the check-up home — every month — and reads the trend, not the snapshot.
           The small drifts an annual visit sleeps through are exactly the ones we're built to catch.
-          <strong>Twelve home visits a year, every reading reviewed by an MD.</strong>
+          <strong>Twelve home visits a year, every reading reviewed by a doctor.</strong>
         </p>
       </div>
     </section>
@@ -181,15 +169,15 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
           </div>
           <div class="app__hero-phone reveal">
             <div class="app__glow" aria-hidden="true"></div>
-            <img src="app/home.webp" width="700" height="1675" alt="Thuna member app — Home screen showing the Kapoor family wellness score of 72/100 and a member who needs a closer look." loading="lazy" />
+            <img src="app/home.webp" width="700" height="1556" alt="Thuna member app — Home screen showing the Kapoor family wellness score of 72/100 and a member who needs a closer look." loading="lazy" />
           </div>
         </div>
 
         <div class="app__gallery reveal" role="list">
           {appScreens.slice(1).map((s) => (
             <figure class="app__screen" role="listitem">
-              <img src={s.src} width="700" height="1502" alt={`Thuna member app — ${s.label} screen.`} loading="lazy" />
-              <figcaption><b>{s.label}</b><span>{s.note}</span></figcaption>
+              <img src={s.src} width="700" height="1556" alt={`Thuna member app — ${s.label} screen.`} loading="lazy" />
+              <figcaption><b>{s.label}</b></figcaption>
             </figure>
           ))}
         </div>
@@ -215,32 +203,6 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
           ))}
         </div>
       </div>
-    </section>
-
-    <!-- ============== HOW IT WORKS ============== -->
-    <section class="how" id="how">
-      <div class="wrap how__intro">
-        <div class="section-head reveal">
-          <span class="eyebrow">How it works · scroll to follow</span>
-          <h2>One monthly visit, <span class="accent">start to finish.</span></h2>
-          <p class="lede">Continuous care isn't an app alone — it's someone showing up at your dining table. Scroll, and the whole visit unfolds: the companion arrives, the vitals come in, an MD reviews the trend, your family sees it.</p>
-        </div>
-      </div>
-
-      <StoryFlow client:only="react" />
-
-      {/* static fallback — shown for no-JS / reduced-motion */}
-      <ol class="flow-static wrap">
-        {steps.map((s) => (
-          <li class="card step">
-            <div class="step__n">{s.n}</div>
-            <div class="step__body">
-              <div class="step__top"><h3>{s.t}</h3><span class="step__time">{s.time}</span></div>
-              <p>{s.d}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
     </section>
 
     <!-- ============== WHAT WE MEASURE ============== -->
@@ -283,13 +245,13 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
         <div class="section-head reveal">
           <span class="eyebrow">The catch</span>
           <h2>What our model saw <span class="accent">before symptoms.</span></h2>
-          <p class="lede">Each reading lands beside the last eleven. Drift-detection compares against the household's own baseline — not population averages — and flags what an MD reviews the same day. One real case, April 2026.</p>
+          <p class="lede">Each reading lands beside the last eleven. Drift-detection compares against the household's own baseline — not population averages — and flags what a doctor reviews the same day. One real case, April 2026.</p>
         </div>
         <div class="case reveal">
           <div class="card case__chart">
             <div class="case__meta">
               <span>Systolic BP · mmHg · 12 months</span>
-              <span>Member · age 58 · NCR</span>
+              <span>Member · age 58 · Dwarka</span>
             </div>
             <svg class="case__svg" viewBox="0 0 520 200" preserveAspectRatio="none" role="img" aria-label="A blood-pressure trend line: nine stable months, then a three-month upward drift that is flagged.">
               <defs>
@@ -328,7 +290,7 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Why members renewed</span>
-          <h2>What 500+ households <span class="accent">told us.</span></h2>
+          <h2>What 200 households <span class="accent">told us.</span></h2>
           <p class="lede">Feedback from quarterly review calls. Names changed for privacy on request.</p>
         </div>
         <div class="quotes">
@@ -375,13 +337,13 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
         <div class="card compare reveal">
           <p class="compare__head">What you'd otherwise spend</p>
           <ul class="compare__list">
-            <li><span>One ICU night in Delhi-NCR</span><b>₹40,000–1,00,000</b></li>
+            <li><span>One ICU night in Delhi</span><b>₹40,000–1,00,000</b></li>
             <li><span>Annual master health checkup × 4</span><b>₹24,000+</b></li>
             <li><span>Concierge home doctor visit (one-off)</span><b>₹2,500–4,000</b></li>
           </ul>
           <p class="compare__foot">Annual Thuna for a household: <b>₹6,000</b> — effectively ₹500 a month. No insurance markup, no hospital admin overhead.</p>
         </div>
-        <p class="finely">Lab tests run through NABL-accredited partner labs. Doctor consults are virtual, conducted by partner MDs. Thuna does not provide insurance products. Pricing is exclusive of GST where applicable.</p>
+        <p class="finely">Lab tests run through NABL-accredited partner labs. Doctor consults are virtual, conducted by partner doctors. Thuna does not provide insurance products. Pricing is exclusive of GST where applicable.</p>
       </div>
     </section>
 
@@ -390,14 +352,14 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
       <div class="wrap area">
         <div class="area__copy reveal">
           <span class="eyebrow">Service area</span>
-          <h2>Now serving the <span class="accent">NCR region.</span></h2>
-          <p class="lede">Real households, real visits, real longitudinal records — across the National Capital Region.</p>
+          <h2>Now serving <span class="accent">Dwarka and Faridabad.</span></h2>
+          <p class="lede">Real households, real visits, real longitudinal records — close to home.</p>
           <div class="area__stats">
-            <div><b class="count" data-to="500" data-suffix="+">0</b><span>households</span></div>
-            <div><b class="count" data-to="11">0</b><span>active sectors</span></div>
+            <div><b class="count" data-to="200">0</b><span>households</span></div>
+            <div><b>2</b><span>areas served</span></div>
             <div><b class="count" data-to="30" data-prefix="~" data-suffix=" min">0</b><span>avg travel radius</span></div>
           </div>
-          <p class="area__note">Not sure if we're in your sector yet? <a href={WA_BOOK}>Message us</a> — we're expanding across NCR.</p>
+          <p class="area__note">Not sure if we're near you yet? <a href={WA_BOOK}>Message us</a> — we're adding more areas soon.</p>
         </div>
         <div class="area__chips reveal">
           {areas.map((a) => (<span class="area-chip"><span set:html={I.pin}></span>{a}</span>))}
@@ -448,17 +410,17 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
     <div class="wrap wrap--wide footer__inner">
       <div class="footer__brand">
         <a class="brand brand--light" href="#top" aria-label="thuna.care home" set:html={Wordmark}></a>
-        <p>Care that stays with you. Twelve home visits a year, every reading reviewed by an MD — for Indian families.</p>
+        <p>Care that stays with you. Twelve home visits a year, every reading reviewed by a doctor — for Indian families.</p>
       </div>
       <div class="footer__col">
         <h4>Talk to us</h4>
-        <a href={WA_BOOK} set:html={`${I.whatsapp}<span>+91 98105 19812</span>`}></a>
+        <a href={WA_BOOK} set:html={`${I.whatsapp}<span>+91 88912 30464</span>`}></a>
         <a href={`mailto:${EMAIL}`} set:html={`${I.mail}<span>${EMAIL}</span>`}></a>
       </div>
       <div class="footer__col">
         <h4>Product</h4>
         <a href="#app">The app</a>
-        <a href="#how">How it works</a>
+        <a href="#measure">What we measure</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </div>
