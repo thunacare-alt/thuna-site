@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1B4332" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <title>Thuna.Care — Continuous health monitoring for your family</title>
+    <meta
+      name="description"
+      content="Twelve home visits a year, every reading reviewed by an MD. Catch drift before symptoms — what an annual checkup never could. Now serving NCR region."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Thuna.Care — Care that stays with you" />
+    <meta
+      property="og:description"
+      content="Continuous health monitoring for your family. Twelve home visits a year. Drift caught before symptoms. Now serving NCR region."
+    />
+    <meta property="og:url" content="https://thuna.in/" />
+    <meta property="og:image" content="https://thuna.in/og-image.png" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Thuna.Care — Care that stays with you" />
+    <meta
+      name="twitter:description"
+      content="Twelve home visits a year. Every reading reviewed by an MD. Drift caught before symptoms. Continuous health monitoring for Indian families."
+    />
+    <meta name="twitter:image" content="https://thuna.in/og-image.png" />
+    <script type="module" crossorigin src="/assets/index-D7nNzOOs.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-BYbx6iT9.js">
+    <link rel="modulepreload" crossorigin href="/assets/icons-D4oCfgx6.js">
+    <link rel="modulepreload" crossorigin href="/assets/motion-BtHKHkGe.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Dqslc4X8.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
