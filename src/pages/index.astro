@@ -40,6 +40,16 @@ const props = [
   { icon: I.route, t: "Routed, not abandoned", d: "Drift detected → a virtual doctor or a partner lab, the same week, at member rates. A number is never left for you to decode alone." },
 ];
 
+const howSteps = [
+  { t: "A monthly home visit", d: "Each month, a trained Thuna companion comes to your family at home — at a time that suits you." },
+  { t: "A few simple questions", d: "They start by understanding how your parent has been: symptoms, medicines, sleep, appetite and any concerns." },
+  { t: "The vitals that matter", d: "Blood pressure, ECG and glucose — plus SpO₂, temperature, pulse and weight — measured gently, in minutes." },
+  { t: "Lab tests at home, when needed", d: "If something needs a closer look, lab tests are arranged at home too. No clinic queues." },
+  { t: "Reviewed by a doctor", d: "A doctor reviews every reading and flags anything that needs attention — catching small changes early." },
+  { t: "Your whole family stays informed", d: "Everyone follows along in the Thuna app, wherever they are, with a clear wellness score and trends." },
+  { t: "Preventive care, every month", d: "Because we visit regularly, drift is caught before it becomes an emergency. That's the whole point." },
+];
+
 const vitalsEvery = ["Blood Pressure", "Pulse + ECG", "SpO₂", "Temperature", "Blood Glucose", "BMI + Waist", "Haemoglobin"];
 const vitalsTrigger = ["HbA1c (3-mo sugar)", "Lipid profile", "Kidney function", "Liver function", "Thyroid (TSH)", "Urine routine", "Vitamin D + B12"];
 
@@ -93,6 +103,7 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
       <a class="brand" href="#top" aria-label="thuna.care home" set:html={Wordmark}></a>
       <nav class="nav__links" aria-label="Primary">
         <a href="#app">The app</a>
+        <a href="#how">How it works</a>
         <a href="#measure">What we measure</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
@@ -106,6 +117,7 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
     </div>
     <div class="mobile-menu" id="mobile-menu" hidden>
       <a href="#app">The app</a>
+      <a href="#how">How it works</a>
       <a href="#measure">What we measure</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
@@ -128,7 +140,7 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
           <p class="hero__cap" id="heroCap">Every heartbeat, watched at home.</p>
           <div class="hero__btns">
             <a class="btn btn--primary btn--lg" href={WA_BOOK} set:html={`${I.whatsapp}<span>Book a visit</span>`}></a>
-            <button class="btn btn--ghost btn--lg" id="watchFilm" type="button" set:html={`${I.play}<span>Watch the 35-sec film</span>`}></button>
+            <a class="btn btn--ghost btn--lg" href="#how" set:html={`<span>How it works</span>${I.arrow}`}></a>
           </div>
           <p class="hero__note">₹500 / month · Twelve home visits a year · Cancel anytime</p>
         </div>
@@ -201,6 +213,32 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
               <p>{p.d}</p>
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== HOW WE WORK (written) ============== -->
+    <section class="section section--page how" id="how">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">How we work</span>
+          <h2>One calm visit a month, <span class="accent">start to finish.</span></h2>
+          <p class="lede">No app to wrestle with, no clinic queues — just a trained companion at your door each month, and a doctor watching the trend behind the scenes.</p>
+        </div>
+        <ol class="how-steps">
+          {howSteps.map((s, i) => (
+            <li class="how-step reveal">
+              <div class="how-step__n">{i + 1}</div>
+              <div class="how-step__body">
+                <h3>{s.t}</h3>
+                <p>{s.d}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div class="how-cta reveal">
+          <p><strong>₹500 / month</strong> · twelve home visits a year · now serving Dwarka &amp; Faridabad.</p>
+          <a class="btn btn--primary btn--lg" href={WA_BOOK} set:html={`${I.whatsapp}<span>Book a visit</span>`}></a>
         </div>
       </div>
     </section>
@@ -420,7 +458,7 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
       <div class="footer__col">
         <h4>Product</h4>
         <a href="#app">The app</a>
-        <a href="#measure">What we measure</a>
+        <a href="#how">How it works</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </div>
@@ -443,14 +481,6 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
     <a class="btn btn--primary" href={WA_BOOK} set:html={`${I.whatsapp}<span>Book a visit</span>`}></a>
   </div>
 
-  <!-- ============== WATCH-THE-FILM MODAL ============== -->
-  <div class="film-modal" id="filmModal" hidden>
-    <div class="film-modal__backdrop" data-close></div>
-    <div class="film-modal__box" role="dialog" aria-modal="true" aria-label="Thuna.Care — the 35-second film">
-      <button class="film-modal__close" data-close type="button" aria-label="Close film">×</button>
-      <video id="filmVideo" src="hero.mp4" poster="hero-poster.jpg" controls playsinline preload="none"></video>
-    </div>
-  </div>
 </Layout>
 
 <style>
@@ -684,16 +714,6 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
   .sticky-cta .btn { padding: 12px 18px; font-size: 14.5px; white-space: nowrap; }
   @keyframes slideUp { from { transform: translateY(120%); } to { transform: none; } }
 
-  /* ---------------- FILM MODAL ---------------- */
-  .film-modal { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 20px; }
-  .film-modal__backdrop { position: absolute; inset: 0; background: rgba(15,23,42,.74); backdrop-filter: blur(6px); animation: fadeIn .3s ease; }
-  .film-modal__box { position: relative; width: min(960px, 96vw); border-radius: 18px; overflow: hidden; box-shadow: var(--sh-md); background: #0B1220; animation: popIn .35s cubic-bezier(.2,.8,.2,1); }
-  .film-modal__box video { width: 100%; display: block; aspect-ratio: 16/9; background: #0B1220; }
-  .film-modal__close { position: absolute; top: 10px; right: 10px; z-index: 2; width: 42px; height: 42px; border-radius: 50%; border: none; background: rgba(255,255,255,.16); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; backdrop-filter: blur(6px); }
-  .film-modal__close:hover { background: rgba(255,255,255,.3); }
-  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-  @keyframes popIn { from{opacity:0; transform: scale(.94)} to{opacity:1; transform:none} }
-
   /* ---------------- RESPONSIVE ---------------- */
   @media (max-width: 980px) {
     .nav__links, .nav__cta { display: none; }
@@ -742,16 +762,6 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
   menu?.querySelectorAll('a').forEach((a) =>
     a.addEventListener('click', () => { menu.hidden = true; burger?.setAttribute('aria-expanded', 'false'); })
   );
-
-  // "Watch the film" modal
-  const filmBtn = document.getElementById('watchFilm');
-  const filmModal = document.getElementById('filmModal');
-  const filmVideo = document.getElementById('filmVideo');
-  const openFilm = () => { if (!filmModal) return; filmModal.hidden = false; document.body.style.overflow = 'hidden'; if (filmVideo) { filmVideo.currentTime = 0; filmVideo.play().catch(() => {}); } };
-  const closeFilm = () => { if (!filmModal) return; filmModal.hidden = true; document.body.style.overflow = ''; if (filmVideo) filmVideo.pause(); };
-  filmBtn?.addEventListener('click', openFilm);
-  filmModal?.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', closeFilm));
-  window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && filmModal && !filmModal.hidden) closeFilm(); });
 
   // scroll reveal
   const io = new IntersectionObserver((entries) => {
