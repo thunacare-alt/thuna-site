@@ -8,23 +8,24 @@ export const FONTS = {
 } as const;
 
 export const PALETTE = {
-  bg: "#F7FAFC",
+  bg: "#F6F9FF",
   bgWarm: "#FFFFFF",
   white: "#FFFFFF",
 
-  sky: "#4DA6FF",
-  blue: "#1565D8",
-  blueDeep: "#0E4DA8",
-  navy: "#0F3D91",
+  // tuned to the member app's blue ramp (#2563EB family)
+  sky: "#60A5FA",
+  blue: "#2563EB",
+  blueDeep: "#1D4ED8",
+  navy: "#1E3A8A",
 
-  skySoft: "#A9D3FF",
-  blueSoft: "#D7E7FB",
+  skySoft: "#BFD7FE",
+  blueSoft: "#DBE7FE",
   navySoft: "#AFC0E2",
-  blueWash: "rgba(21,101,216,0.10)",
+  blueWash: "rgba(37,99,235,0.10)",
 
-  text: "#0F2742",
-  textMuted: "rgba(15,39,66,0.5)",
-  textFaint: "rgba(15,39,66,0.28)",
+  text: "#0F172A",
+  textMuted: "rgba(15,23,42,0.5)",
+  textFaint: "rgba(15,23,42,0.28)",
 
   glassBg: "rgba(255,255,255,0.72)",
   glassBorder: "rgba(21,101,216,0.25)",

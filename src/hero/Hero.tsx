@@ -255,7 +255,7 @@ export default function Hero() {
       }
       if (glowRef.current && fine) {
         glowRef.current.style.background =
-          `radial-gradient(360px 360px at ${x * 100}% ${y * 100}%, rgba(21,101,216,0.10), transparent 70%)`;
+          `radial-gradient(360px 360px at ${x * 100}% ${y * 100}%, rgba(37,99,235,0.12), transparent 70%)`;
       }
       raf = requestAnimationFrame(tick);
     };
@@ -374,11 +374,11 @@ export default function Hero() {
               const cvis = clamp(1 - cd / 0.62);
               return (
                 <div key={b.key} style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-end", textAlign: "center", opacity: cvis, transform: `translateY(${(1 - cvis) * 14}px)` }}>
-                  <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 12.5, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#1B4332", opacity: 0.65, marginBottom: 10 }}>
+                  <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 12, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#2563EB", marginBottom: 10 }}>
                     {String(i + 1).padStart(2, "0")} · {b.tag}
                   </div>
-                  <div style={{ fontFamily: '"Fraunces", Georgia, serif', fontSize: "clamp(20px, 2.5vw, 30px)", lineHeight: 1.18, color: "#19211C", fontWeight: 460 }}>
-                    {b.caption} <span style={{ fontStyle: "italic", color: "#1B4332" }}>{b.em}</span>
+                  <div style={{ fontFamily: '"Inter",sans-serif', fontSize: "clamp(20px, 2.6vw, 31px)", lineHeight: 1.16, color: "#0F172A", fontWeight: 800, letterSpacing: "-0.025em" }}>
+                    {b.caption} <span style={{ color: "#2563EB" }}>{b.em}</span>
                   </div>
                 </div>
               );
@@ -388,7 +388,7 @@ export default function Hero() {
 
         {/* progress rail */}
         <div style={{ position: "absolute", left: 0, right: 0, bottom: 30, display: "flex", justifyContent: "center", zIndex: 6 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", borderRadius: 999, background: "rgba(255,255,255,0.7)", backdropFilter: "blur(10px)", border: "1px solid rgba(27,67,50,0.10)", boxShadow: "0 8px 24px rgba(20,45,33,0.10)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", borderRadius: 999, background: "rgba(255,255,255,0.72)", backdropFilter: "blur(10px)", border: "1px solid rgba(15,23,42,0.08)", boxShadow: "0 8px 24px rgba(15,23,42,0.10)" }}>
             {BEATS.map((b, i) => {
               const on = i === activeIndex;
               return (
@@ -396,7 +396,7 @@ export default function Hero() {
                   key={b.key}
                   onClick={() => { setTarget(i * SPACING); setInteracted(true); }}
                   aria-label={`Go to: ${b.tag}`}
-                  style={{ width: on ? 30 : 10, height: 10, borderRadius: 999, border: "none", padding: 0, cursor: "pointer", background: on ? "#1B4332" : "rgba(27,67,50,0.22)", transition: "width .3s ease, background .3s ease" }}
+                  style={{ width: on ? 30 : 10, height: 10, borderRadius: 999, border: "none", padding: 0, cursor: "pointer", background: on ? "#2563EB" : "rgba(37,99,235,0.22)", transition: "width .3s ease, background .3s ease" }}
                 />
               );
             })}
@@ -406,7 +406,7 @@ export default function Hero() {
         {/* hint */}
         {mode !== "static" && (
           <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", zIndex: 7, pointerEvents: "none", opacity: interacted ? 0 : 1, transition: "opacity .6s ease" }}>
-            <div className="hero-hint" style={{ display: "flex", alignItems: "center", gap: 12, padding: "13px 22px", borderRadius: 999, background: "rgba(25,33,28,0.82)", color: "#fff", fontFamily: '"Inter",sans-serif', fontWeight: 600, fontSize: 15.5, boxShadow: "0 16px 40px rgba(0,0,0,0.25)" }}>
+            <div className="hero-hint" style={{ display: "flex", alignItems: "center", gap: 12, padding: "13px 22px", borderRadius: 999, background: "rgba(15,23,42,0.9)", color: "#fff", fontFamily: '"Inter",sans-serif', fontWeight: 600, fontSize: 15.5, boxShadow: "0 16px 40px rgba(15,23,42,0.28)" }}>
               <span>{mode === "touch" ? "Drag to follow the visit" : "Move your cursor to follow the visit"}</span>
               <span className="hero-hint__arrow" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
@@ -420,8 +420,8 @@ export default function Hero() {
       {mode === "static" && (
         <ul style={{ listStyle: "none", margin: "26px auto 0", padding: "0 20px", maxWidth: 760, display: "grid", gap: 8 }}>
           {BEATS.map((b, i) => (
-            <li key={b.key} style={{ fontFamily: '"Inter",sans-serif', color: "#3D433D", fontSize: 15 }}>
-              <b style={{ color: "#1B4332" }}>{String(i + 1).padStart(2, "0")}</b>&nbsp; {b.caption} {b.em}
+            <li key={b.key} style={{ fontFamily: '"Inter",sans-serif', color: "#64748B", fontSize: 15 }}>
+              <b style={{ color: "#2563EB" }}>{String(i + 1).padStart(2, "0")}</b>&nbsp; {b.caption} {b.em}
             </li>
           ))}
         </ul>

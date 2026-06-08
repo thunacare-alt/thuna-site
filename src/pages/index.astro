@@ -3,37 +3,44 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../hero/Hero.tsx";
 
 // ---- contact ----
-const PHONE = "919810519812"; // +91 98105 19812
+const PHONE = "919810519812";
 const EMAIL = "care@thuna.in";
 const wa = (msg) => `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
 const WA_BOOK = wa("Hi Thuna — I'd like to book a home visit. My city + household size: ");
 const WA_ANNUAL = wa("Hi Thuna — I'd like to start the annual plan (₹500/month). My city + household size: ");
 const WA_SINGLE = wa("Hi Thuna — I'd like to book a single home visit (₹500). My city + household size: ");
 
-// ---- inline icons (lucide-style) ----
+// ---- icons (lucide-style) ----
 const I = {
   whatsapp: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.62-5.962C.122 5.281 5.4 0 12.057 0c3.262 0 6.323 1.27 8.624 3.575 2.3 2.302 3.57 5.364 3.568 8.624 0 6.654-5.282 11.934-11.934 11.934a11.86 11.86 0 01-5.71-1.456L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.83 9.83 0 001.516 5.26l-.999 3.648 3.972-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>`,
   arrow: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`,
   play: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>`,
   check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`,
   mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
-  pulse: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
-  users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-  route: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>`,
-  pin: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`,
-  shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>`,
-  volOff: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>`,
-  volOn: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>`,
+  pulse: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
+  users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  route: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>`,
+  pin: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`,
+  shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>`,
+  mark: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h4l2.5-6 5 12 2.5-6H22"/></svg>`,
 };
 
-// ---- content data ----
+// ---- content ----
+const appScreens = [
+  { src: "app/home.webp", label: "Home", note: "One wellness score for the whole family — tap into the why." },
+  { src: "app/family.webp", label: "Family", note: "Everyone sorted by who needs attention first." },
+  { src: "app/trends.webp", label: "Trends", note: "See exactly how each marker is moving over months." },
+  { src: "app/diet.webp", label: "Diet", note: "A personalised plan per member, from their readings." },
+  { src: "app/profile.webp", label: "Profile", note: "Reports, visit history and family settings." },
+];
+
 const steps = [
   { n: "01", t: "A companion arrives", time: "Monthly, at home", d: "Background-checked, ID-verified, trained in our six-week home-care protocol. The same familiar faces every month — not a different stranger each time." },
   { n: "02", t: "A few simple questions", time: "First 5 minutes", d: "We start with a short profile: how you've been, sleep, diet, anything new since last visit. The context that numbers alone can't show." },
   { n: "03", t: "Vitals at the dining table", time: "~15 minutes", d: "Blood pressure, ECG, blood glucose, SpO₂, temperature, pulse and weight — recorded into your family's record and explained as we go." },
   { n: "04", t: "Labs at home, only when needed", time: "When a trend flags", d: "If something is drifting, a registered Nursing Assistant draws bloods at home and we order the right test from an NABL-accredited partner lab. Never on a fixed calendar." },
   { n: "05", t: "An MD reviews every reading", time: "Same day", d: "Each reading lands beside your last eleven. An MD reviews the trend virtually the same day and flags anything drifting — before symptoms appear." },
-  { n: "06", t: "The whole family follows along", time: "Within the hour", d: "A plain-language summary lands in your family's WhatsApp and in the app. Everyone stays in the loop — no panic, just continuity." },
+  { n: "06", t: "The whole family follows along", time: "Within the hour", d: "A plain-language summary lands in the app and on WhatsApp. Everyone stays in the loop — no panic, just continuity." },
 ];
 
 const props = [
@@ -55,7 +62,7 @@ const caseTimeline = [
 const testimonials = [
   { q: "My father's BP was drifting up over our first months with Thuna. The doctor caught it — and routed us to a tele-consult before any symptoms. We changed his meds. That's the entire point.", n: "Anita R.", m: "Family of 4" },
   { q: "Felt expensive at first. Then we did the maths: one ICU night in this city is a year of Thuna. My wife and I don't queue up for hospital checkups any more.", n: "Vikram J.", m: "Family of 3" },
-  { q: "What I didn't expect: the WhatsApp summaries. My mother reads them. My sister reads them. We finally talk about my parents' health as a family — not in a panic.", n: "Priya M.", m: "Family of 5" },
+  { q: "What I didn't expect: the app summaries. My mother reads them. My sister reads them. We finally talk about my parents' health as a family — not in a panic.", n: "Priya M.", m: "Family of 5" },
 ];
 
 const areas = ["Dwarka", "Gurugram", "South Delhi", "Noida", "Faridabad"];
@@ -66,7 +73,7 @@ const annualIncludes = [
   "Continuous monitoring + longitudinal record",
   "Same-day virtual MD review of every reading",
   "Member-rate doctor consults + partner labs",
-  "Family report on WhatsApp + emergency routing",
+  "Family report in the app + on WhatsApp",
 ];
 const singleIncludes = [
   "1 home visit · readings for up to 2 people",
@@ -84,20 +91,19 @@ const faqs = [
   { q: "What if there's an emergency?", a: "Emergency ambulance routing is included (partner-billed), and if a reading needs urgent attention our MD review flags it the same day and routes you onward. Thuna is preventive monitoring, not a 24/7 emergency room — but you're never left to interpret a worrying number on your own." },
   { q: "How does cancellation work?", a: "Cancel anytime — there's no lock-in. The annual plan is the best way to build a longitudinal record, and the single-visit option lets you try Thuna once before committing to the year." },
 ];
+
+const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__word">thuna<span class="brand__dot">.</span>care</span>`;
 ---
 
 <Layout>
   <!-- ============== HEADER ============== -->
   <header class="nav" id="nav" data-state="top">
-    <div class="wrap nav__inner">
-      <a class="brand" href="#top" aria-label="Thuna.Care home">
-        <img src="favicon.svg" alt="" width="34" height="34" />
-        <span>Thuna<span class="brand__dot">.</span>Care</span>
-      </a>
+    <div class="wrap wrap--wide nav__inner">
+      <a class="brand" href="#top" aria-label="thuna.care home" set:html={Wordmark}></a>
       <nav class="nav__links" aria-label="Primary">
+        <a href="#app">The app</a>
         <a href="#how">How it works</a>
         <a href="#measure">What we measure</a>
-        <a href="#prevent">Prevention</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -109,9 +115,9 @@ const faqs = [
       </button>
     </div>
     <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="#app">The app</a>
       <a href="#how">How it works</a>
       <a href="#measure">What we measure</a>
-      <a href="#prevent">Prevention</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <a class="btn btn--primary btn--lg" href={WA_BOOK} set:html={`${I.whatsapp}<span>Book a visit</span>`}></a>
@@ -126,11 +132,11 @@ const faqs = [
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="wrap wrap--wide hero__top">
         <div class="hero__intro">
-          <span class="eyebrow">Thuna.Care · Now serving NCR</span>
-          <h1 class="hero__h1">Care that <span class="accent-it">stays with you.</span></h1>
+          <span class="eyebrow">Continuous home health · Now serving NCR</span>
+          <h1 class="hero__h1">Care that <span class="accent">stays with you.</span></h1>
           <p class="hero__sub">
             A Thuna companion visits your home every month — vitals checked, every reading
-            reviewed by an MD, your whole family in the loop.
+            reviewed by an MD, your whole family in one app.
           </p>
         </div>
         <div class="hero__actions">
@@ -141,7 +147,6 @@ const faqs = [
           <p class="hero__note">₹500 / month · Twelve home visits a year · Cancel anytime</p>
         </div>
       </div>
-
       <div class="wrap wrap--wide hero__stage-wrap">
         <Hero client:only="react" />
       </div>
@@ -153,13 +158,46 @@ const faqs = [
         <span class="eyebrow reveal">Why we exist</span>
         <p class="display opening__line reveal">
           The people you love don't fall ill on a schedule.
-          <span class="accent-it">So why check on them just once a year?</span>
+          <span class="accent">So why check on them just once a year?</span>
         </p>
         <p class="opening__sub reveal">
-          Thuna brings the check-up home — every month — and reads the <em>trend</em>, not the
-          snapshot. The small drifts an annual visit sleeps through are exactly the ones we're
-          built to catch. <strong>Twelve home visits a year, every reading reviewed by an MD.</strong>
+          Thuna brings the check-up home — every month — and reads the trend, not the snapshot.
+          The small drifts an annual visit sleeps through are exactly the ones we're built to catch.
+          <strong>Twelve home visits a year, every reading reviewed by an MD.</strong>
         </p>
+      </div>
+    </section>
+
+    <!-- ============== APP SHOWCASE ============== -->
+    <section class="section section--page app" id="app">
+      <div class="wrap wrap--wide">
+        <div class="app__top">
+          <div class="app__copy reveal">
+            <span class="eyebrow">The Thuna app</span>
+            <h2>Your family's health, <span class="accent">finally in one place.</span></h2>
+            <p class="lede">Every visit lands in a calm, plain-language app — one wellness score for the household, who needs a closer look, how each marker is trending, and a diet plan tuned to each member. No raw jargon, no panic.</p>
+            <ul class="app__feats">
+              <li><span set:html={I.check}></span><b>One family score.</b> A single wellness index, tap into the why.</li>
+              <li><span set:html={I.check}></span><b>Sorted by attention.</b> Who's on track, who needs a closer look.</li>
+              <li><span set:html={I.check}></span><b>Trends that matter.</b> Watch BP, sugar &amp; more move over months.</li>
+              <li><span set:html={I.check}></span><b>Plain language.</b> Colour and words, never raw scores.</li>
+            </ul>
+          </div>
+          <div class="app__hero-phone reveal">
+            <div class="app__glow" aria-hidden="true"></div>
+            <img src="app/home.webp" width="700" height="1675" alt="Thuna member app — Home screen showing the Kapoor family wellness score of 72/100 and a member who needs a closer look." loading="lazy" />
+          </div>
+        </div>
+
+        <div class="app__gallery reveal" role="list">
+          {appScreens.slice(1).map((s) => (
+            <figure class="app__screen" role="listitem">
+              <img src={s.src} width="700" height="1502" alt={`Thuna member app — ${s.label} screen.`} loading="lazy" />
+              <figcaption><b>{s.label}</b><span>{s.note}</span></figcaption>
+            </figure>
+          ))}
+        </div>
+        <p class="app__note">Actual screens from the Thuna member app · same design language as this site.</p>
       </div>
     </section>
 
@@ -168,12 +206,12 @@ const faqs = [
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Why continuous, not annual</span>
-          <h2>Indian families are checked <span class="accent-it">once a year</span>, when disease moves every month.</h2>
+          <h2>Indian families are checked <span class="accent">once a year</span>, when disease moves every month.</h2>
           <p class="lede">Almost every chronic disease that kills Indians under 60 — hypertension, diabetes, kidney drift, lipid disorders — is invisible for years before it shows. An annual checkup sees one snapshot and misses the eleven months in between. Thuna replaces the snapshot with a trend line.</p>
         </div>
         <div class="props">
           {props.map((p) => (
-            <article class="prop-card reveal">
+            <article class="card prop-card reveal">
               <span class="prop-card__icon" set:html={p.icon}></span>
               <h3>{p.t}</h3>
               <p>{p.d}</p>
@@ -184,16 +222,16 @@ const faqs = [
     </section>
 
     <!-- ============== HOW IT WORKS ============== -->
-    <section class="section section--cream" id="how">
+    <section class="section section--page" id="how">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">How it works</span>
-          <h2>What every monthly visit <span class="accent-it">looks like.</span></h2>
-          <p class="lede">Continuous care isn't an app — it's someone showing up at your dining table. Every visit follows the same protocol; every reading lands in your family's longitudinal record.</p>
+          <h2>What every monthly visit <span class="accent">looks like.</span></h2>
+          <p class="lede">Continuous care isn't an app alone — it's someone showing up at your dining table. Every visit follows the same protocol; every reading lands in your family's longitudinal record.</p>
         </div>
         <ol class="steps">
           {steps.map((s) => (
-            <li class="step reveal">
+            <li class="card step reveal">
               <div class="step__n">{s.n}</div>
               <div class="step__body">
                 <div class="step__top">
@@ -213,14 +251,14 @@ const faqs = [
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">What we measure</span>
-          <h2>Snapshots give you a number. <span class="accent-it">Trends tell the story.</span></h2>
+          <h2>Snapshots give you a number. <span class="accent">Trends tell the story.</span></h2>
           <p class="lede">Continuous vitals at every visit, deeper labs only when your trend asks for them — never on a fixed calendar you don't need.</p>
         </div>
         <div class="measure">
-          <div class="measure-col reveal">
+          <div class="card measure-col reveal">
             <div class="measure-col__head">
               <h3>Every visit</h3>
-              <span class="pill pill--green">12× a year · included</span>
+              <span class="pill pill--blue">12× a year · included</span>
             </div>
             <p class="measure-col__sub">Captured at home, beside your last eleven readings.</p>
             <ul class="chips">
@@ -228,10 +266,10 @@ const faqs = [
               <li class="chip chip--more">&amp; more</li>
             </ul>
           </div>
-          <div class="measure-col reveal">
+          <div class="card measure-col reveal">
             <div class="measure-col__head">
               <h3>On trigger</h3>
-              <span class="pill pill--coral">Only when your trend flags · member rate</span>
+              <span class="pill pill--ghost">Only when your trend flags · member rate</span>
             </div>
             <p class="measure-col__sub">When drift is detected, we order the right deeper test from an NABL-accredited partner lab — never a fixed schedule. You never pay for tests you don't need.</p>
             <ul class="chips">
@@ -243,14 +281,13 @@ const faqs = [
     </section>
 
     <!-- ============== PREVENTION / CASE STUDY ============== -->
-    <section class="section section--green" id="prevent">
+    <section class="section section--dark" id="prevent">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">The catch</span>
-          <h2>What our model saw <span class="accent-it">before symptoms.</span></h2>
+          <h2>What our model saw <span class="accent">before symptoms.</span></h2>
           <p class="lede">Each reading lands beside the last eleven. Drift-detection compares against the household's own baseline — not population averages — and flags what an MD reviews the same day. One real case, April 2026.</p>
         </div>
-
         <div class="case reveal">
           <div class="case__chart">
             <div class="case__meta">
@@ -260,21 +297,20 @@ const faqs = [
             <svg class="case__svg" viewBox="0 0 520 200" preserveAspectRatio="none" role="img" aria-label="A blood-pressure trend line: nine stable months, then a three-month upward drift that is flagged.">
               <defs>
                 <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0" stop-color="#C97B5C" stop-opacity="0.28"/>
-                  <stop offset="1" stop-color="#C97B5C" stop-opacity="0"/>
+                  <stop offset="0" stop-color="#60A5FA" stop-opacity="0.32"/>
+                  <stop offset="1" stop-color="#60A5FA" stop-opacity="0"/>
                 </linearGradient>
               </defs>
               <line x1="0" y1="150" x2="520" y2="150" stroke="rgba(255,255,255,.16)" stroke-dasharray="4 6"/>
               <path d="M0 138 L70 140 L140 134 L210 138 L280 132 L350 120 L420 96 L490 70 L520 58" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M0 138 L70 140 L140 134 L210 138 L280 132 L350 120 L420 96 L490 70 L520 58 L520 200 L0 200 Z" fill="url(#fill)"/>
-              <circle cx="490" cy="70" r="6" fill="#C97B5C" stroke="#fff" stroke-width="2"/>
+              <circle cx="490" cy="70" r="6" fill="#60A5FA" stroke="#fff" stroke-width="2"/>
             </svg>
             <div class="case__legend">
               <span><i class="lg lg--stable"></i> 9 stable months — within baseline</span>
               <span><i class="lg lg--drift"></i> 3-month drift — +15% vs. baseline</span>
             </div>
           </div>
-
           <div class="case__story">
             <div class="case__flag">
               <span class="case__flag-pill">⚑ Flagged</span>
@@ -295,12 +331,12 @@ const faqs = [
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Why members renewed</span>
-          <h2>What 500+ households <span class="accent-it">told us.</span></h2>
+          <h2>What 500+ households <span class="accent">told us.</span></h2>
           <p class="lede">Feedback from quarterly review calls. Names changed for privacy on request.</p>
         </div>
         <div class="quotes">
           {testimonials.map((t) => (
-            <figure class="quote reveal">
+            <figure class="card quote reveal">
               <blockquote>“{t.q}”</blockquote>
               <figcaption><span class="quote__n">{t.n}</span><span class="quote__m">{t.m}</span></figcaption>
             </figure>
@@ -310,27 +346,25 @@ const faqs = [
     </section>
 
     <!-- ============== PRICING ============== -->
-    <section class="section section--cream" id="pricing">
+    <section class="section section--page" id="pricing">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Pricing</span>
-          <h2>One household. <span class="accent-it">₹500 a month.</span></h2>
+          <h2>One household. <span class="accent">₹500 a month.</span></h2>
           <p class="lede">The annual plan is the product — it's how we build your family's longitudinal record. A single visit exists for households who want to try us once first.</p>
         </div>
-
         <div class="plans">
           <article class="plan plan--feature reveal">
             <div class="plan__flag">How most families join</div>
             <h3>Annual subscription</h3>
             <div class="plan__price"><span class="amt">₹500</span><span class="per">/ month</span></div>
             <p class="plan__sub">Billed ₹6,000 / year per household · no-cost EMI available</p>
-            <a class="btn btn--primary btn--lg plan__cta" href={WA_ANNUAL} set:html={`${I.whatsapp}<span>Start the year</span>`}></a>
+            <a class="btn btn--light btn--lg plan__cta" href={WA_ANNUAL} set:html={`${I.whatsapp}<span>Start the year</span>`}></a>
             <ul class="plan__list">
               {annualIncludes.map((x) => (<li><span set:html={I.check}></span>{x}</li>))}
             </ul>
           </article>
-
-          <article class="plan reveal">
+          <article class="card plan reveal">
             <div class="plan__flag plan__flag--ghost">Try us once</div>
             <h3>Single visit</h3>
             <div class="plan__price"><span class="amt">₹500</span><span class="per">/ visit · up to 2 people</span></div>
@@ -341,8 +375,7 @@ const faqs = [
             </ul>
           </article>
         </div>
-
-        <div class="compare reveal">
+        <div class="card compare reveal">
           <p class="compare__head">What you'd otherwise spend</p>
           <ul class="compare__list">
             <li><span>One ICU night in Delhi-NCR</span><b>₹40,000–1,00,000</b></li>
@@ -360,7 +393,7 @@ const faqs = [
       <div class="wrap area">
         <div class="area__copy reveal">
           <span class="eyebrow">Service area</span>
-          <h2>Now serving the <span class="accent-it">NCR region.</span></h2>
+          <h2>Now serving the <span class="accent">NCR region.</span></h2>
           <p class="lede">Real households, real visits, real longitudinal records — across the National Capital Region.</p>
           <div class="area__stats">
             <div><b>500+</b><span>households</span></div>
@@ -376,11 +409,11 @@ const faqs = [
     </section>
 
     <!-- ============== FAQ ============== -->
-    <section class="section section--cream" id="faq">
+    <section class="section section--page" id="faq">
       <div class="wrap faq">
         <div class="section-head reveal">
           <span class="eyebrow">Questions</span>
-          <h2>Things families <span class="accent-it">ask us.</span></h2>
+          <h2>Things families <span class="accent">ask us.</span></h2>
         </div>
         <div class="faq__list reveal">
           {faqs.map((f) => (
@@ -397,7 +430,7 @@ const faqs = [
     </section>
 
     <!-- ============== CONTACT ============== -->
-    <section class="section section--green" id="contact">
+    <section class="section section--cta" id="contact">
       <div class="wrap cta">
         <div class="cta__copy reveal">
           <span class="eyebrow">Get started</span>
@@ -415,12 +448,9 @@ const faqs = [
 
   <!-- ============== FOOTER ============== -->
   <footer class="footer">
-    <div class="wrap footer__inner">
+    <div class="wrap wrap--wide footer__inner">
       <div class="footer__brand">
-        <a class="brand brand--light" href="#top" aria-label="Thuna.Care home">
-          <img src="favicon.svg" alt="" width="32" height="32" />
-          <span>Thuna<span class="brand__dot">.</span>Care</span>
-        </a>
+        <a class="brand brand--light" href="#top" aria-label="thuna.care home" set:html={Wordmark}></a>
         <p>Care that stays with you. Twelve home visits a year, every reading reviewed by an MD — for Indian families.</p>
       </div>
       <div class="footer__col">
@@ -429,11 +459,11 @@ const faqs = [
         <a href={`mailto:${EMAIL}`} set:html={`${I.mail}<span>${EMAIL}</span>`}></a>
       </div>
       <div class="footer__col">
-        <h4>Company</h4>
+        <h4>Product</h4>
+        <a href="#app">The app</a>
         <a href="#how">How it works</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
-        <a href="https://thuna.in" target="_blank" rel="noopener">thuna.in ↗</a>
       </div>
       <div class="footer__col">
         <h4>Legal</h4>
@@ -442,7 +472,7 @@ const faqs = [
         <a href="https://thuna.in" target="_blank" rel="noopener">DPDPA notice</a>
       </div>
     </div>
-    <div class="wrap footer__base">
+    <div class="wrap wrap--wide footer__base">
       <span>© 2026 Thuna Health. All rights reserved.</span>
       <span>Made for Indian families.</span>
     </div>
@@ -465,223 +495,255 @@ const faqs = [
 </Layout>
 
 <style>
-  /* ---------------- NAV ---------------- */
-  .nav { position: sticky; top: 0; z-index: 100; transition: background .3s ease, box-shadow .3s ease, border-color .3s; border-bottom: 1px solid transparent; }
-  .nav[data-state="top"] { background: rgba(255,255,255,.55); backdrop-filter: blur(8px); }
-  .nav[data-state="scrolled"] { background: rgba(255,255,255,.9); backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(20,45,33,.06), 0 8px 30px rgba(20,45,33,.05); border-color: var(--line); }
-  .nav__inner { display: flex; align-items: center; gap: 18px; height: 72px; }
-  .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 560; font-size: 21px; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
-  .brand img { border-radius: 8px; }
-  .brand__dot { color: var(--coral); }
+  /* ---------------- BRAND / NAV ---------------- */
+  .nav { position: sticky; top: 0; z-index: 100; transition: background .3s, box-shadow .3s, border-color .3s; border-bottom: 1px solid transparent; }
+  .nav[data-state="top"] { background: rgba(255,255,255,.6); backdrop-filter: blur(8px); }
+  .nav[data-state="scrolled"] { background: rgba(255,255,255,.92); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--border), 0 8px 30px rgba(15,23,42,.05); border-color: var(--border); }
+  .nav__inner { display: flex; align-items: center; gap: 18px; height: 70px; }
+  .brand { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
+  .brand__mark { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg, #2F6BF0, var(--blue-dark)); color: #fff; box-shadow: 0 4px 12px -3px rgba(37,99,235,.5); }
+  .brand__mark svg { width: 18px; height: 18px; }
+  .brand__word { font-weight: 800; font-size: 20px; letter-spacing: -0.04em; color: var(--ink); }
+  .brand__dot { color: var(--blue); }
   .nav__links { display: flex; gap: 26px; margin-left: auto; }
-  .nav__links a { text-decoration: none; color: var(--body); font-size: 15px; font-weight: 500; transition: color .15s; }
-  .nav__links a:hover { color: var(--green); }
-  .nav__cta { margin-left: 26px; }
+  .nav__links a { text-decoration: none; color: var(--slate); font-size: 15px; font-weight: 500; transition: color .15s; }
+  .nav__links a:hover { color: var(--ink); }
+  .nav__cta { margin-left: 24px; }
   .nav__cta .btn { padding: 11px 20px; font-size: 14.5px; }
-  .nav__burger { display: none; margin-left: auto; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 11px; background: #fff; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+  .nav__burger { display: none; margin-left: auto; width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 12px; background: #fff; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
   .nav__burger span { width: 18px; height: 2px; background: var(--ink); border-radius: 2px; transition: .25s; }
   .nav__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .nav__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .mobile-menu { display: flex; flex-direction: column; gap: 4px; padding: 10px var(--pad) 22px; background: #fff; border-bottom: 1px solid var(--line); }
-  .mobile-menu a:not(.btn) { padding: 13px 6px; text-decoration: none; color: var(--ink); font-weight: 500; border-bottom: 1px solid var(--line); }
+  .mobile-menu { display: flex; flex-direction: column; gap: 4px; padding: 10px var(--pad) 22px; background: #fff; border-bottom: 1px solid var(--border); }
+  .mobile-menu a:not(.btn) { padding: 13px 6px; text-decoration: none; color: var(--ink); font-weight: 500; border-bottom: 1px solid var(--border); }
   .mobile-menu .btn { margin-top: 12px; }
 
-  /* ---------------- INTERACTIVE HERO ---------------- */
-  .hero { position: relative; overflow: clip; display: flex; flex-direction: column; min-height: clamp(560px, calc(100svh - 72px), 940px); padding-top: clamp(10px, 2vw, 24px); padding-bottom: clamp(16px, 2.5vw, 30px); }
-  .hero__stage-wrap { flex: 1 1 auto; min-height: 440px; display: flex; }
-  .hero__bg { position: absolute; inset: 0; z-index: -1;
-    background:
-      radial-gradient(52% 46% at 84% 6%, rgba(27,67,50,.06), transparent 70%),
-      radial-gradient(42% 42% at 6% 94%, rgba(201,123,92,.05), transparent 70%),
-      linear-gradient(180deg, var(--cream-soft), #fff 55%); }
+  /* generic card */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card); box-shadow: var(--sh-sm); }
+
+  /* ---------------- HERO ---------------- */
+  .hero { position: relative; overflow: clip; display: flex; flex-direction: column; min-height: clamp(560px, calc(100svh - 70px), 940px); padding-top: clamp(10px, 2vw, 24px); padding-bottom: clamp(16px, 2.5vw, 30px); }
+  .hero__bg { position: absolute; inset: 0; z-index: -1; background:
+    radial-gradient(52% 46% at 84% 4%, rgba(37,99,235,.08), transparent 70%),
+    radial-gradient(46% 42% at 4% 96%, rgba(37,99,235,.05), transparent 70%),
+    linear-gradient(180deg, #FBFDFF, #fff 55%); }
   .hero__top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 40px; padding-top: clamp(6px, 1.6vw, 18px); padding-bottom: clamp(18px, 2.6vw, 30px); }
   .hero__intro { max-width: 660px; }
-  .hero__h1 { font-size: clamp(40px, 6.4vw, 76px); line-height: .98; margin: 16px 0 0; font-weight: 440; }
-  .hero__h1 .accent-it { display: block; }
-  .hero__sub { margin-top: 18px; font-size: clamp(16px, 1.5vw, 19px); color: var(--body); max-width: 520px; }
+  .hero__h1 { font-size: clamp(40px, 6.2vw, 74px); line-height: .98; margin: 16px 0 0; }
+  .hero__sub { margin-top: 18px; font-size: clamp(16px, 1.5vw, 19px); color: var(--slate); max-width: 520px; }
   .hero__actions { display: flex; flex-direction: column; align-items: flex-start; gap: 13px; padding-bottom: 4px; }
   .hero__btns { display: flex; flex-wrap: wrap; gap: 12px; }
-  .hero__note { font-size: 13.5px; color: var(--muted); font-weight: 500; }
-
-  /* the React island manages its own heights (sticky scrub on touch) */
-  .hero-stage:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+  .hero__note { font-size: 13.5px; color: var(--slate); font-weight: 500; }
+  .hero__stage-wrap { flex: 1 1 auto; min-height: 440px; display: flex; }
+  .hero-stage:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
   .hero-hint__arrow { display: inline-flex; animation: hintNudge 1.3s ease-in-out infinite; }
   @keyframes hintNudge { 0%,100%{ transform: translateX(0) } 50%{ transform: translateX(6px) } }
   @media (prefers-reduced-motion: reduce){ .hero-hint__arrow { animation: none; } }
 
-  /* ---------------- EMOTIONAL OPENING ---------------- */
+  /* ---------------- OPENING ---------------- */
   .opening { padding-block: clamp(74px, 11vw, 150px); }
   .opening .eyebrow { margin-bottom: 26px; }
   .opening__line { max-width: 1000px; }
-  .opening__sub { margin-top: 34px; max-width: 680px; font-size: clamp(18px, 2vw, 21px); line-height: 1.65; color: var(--muted); }
+  .opening__sub { margin-top: 34px; max-width: 680px; font-size: clamp(18px, 2vw, 21px); line-height: 1.65; color: var(--slate); }
   .opening__sub strong { color: var(--ink); font-weight: 600; }
-  .opening__sub em { color: var(--green); font-style: italic; }
 
-  /* ---------------- FILM MODAL ---------------- */
-  .film-modal { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 20px; }
-  .film-modal__backdrop { position: absolute; inset: 0; background: rgba(13,24,18,.74); backdrop-filter: blur(6px); animation: fadeIn .3s ease; }
-  .film-modal__box { position: relative; width: min(960px, 96vw); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg); background: #0d1f17; animation: popIn .35s cubic-bezier(.2,.8,.2,1); }
-  .film-modal__box video { width: 100%; display: block; aspect-ratio: 16/9; background: #0d1f17; }
-  .film-modal__close { position: absolute; top: 10px; right: 10px; z-index: 2; width: 42px; height: 42px; border-radius: 50%; border: none; background: rgba(255,255,255,.16); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; backdrop-filter: blur(6px); transition: background .2s; }
-  .film-modal__close:hover { background: rgba(255,255,255,.3); }
-  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-  @keyframes popIn { from{opacity:0; transform: scale(.94)} to{opacity:1; transform:none} }
+  /* ---------------- APP SHOWCASE ---------------- */
+  .app__top { display: grid; grid-template-columns: 1fr 0.82fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+  .app__copy h2 { margin: 18px 0 0; }
+  .app__copy .lede { margin-top: 20px; font-size: clamp(17px, 1.9vw, 20px); color: var(--slate); line-height: 1.6; max-width: 520px; }
+  .app__feats { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 14px; }
+  .app__feats li { display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; color: var(--slate); }
+  .app__feats li b { color: var(--ink); font-weight: 600; }
+  .app__feats li span { flex: none; width: 22px; height: 22px; border-radius: 7px; background: var(--tint); color: var(--blue); display: grid; place-items: center; margin-top: 1px; }
+  .app__feats li span svg { width: 14px; height: 14px; }
+  .app__hero-phone { position: relative; display: flex; justify-content: center; }
+  .app__hero-phone img { width: min(310px, 78%); height: auto; filter: drop-shadow(0 40px 60px rgba(15,23,42,.18)); border-radius: 38px; }
+  .app__glow { position: absolute; inset: 0; z-index: -1; background: radial-gradient(50% 44% at 50% 42%, rgba(37,99,235,.20), transparent 70%); filter: blur(8px); }
+  .app__gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 26px); margin-top: clamp(40px, 6vw, 72px); }
+  .app__screen { margin: 0; text-align: center; }
+  .app__screen img { width: 100%; max-width: 230px; height: auto; border-radius: 30px; filter: drop-shadow(0 24px 40px rgba(15,23,42,.14)); transition: transform .3s ease; }
+  .app__screen:hover img { transform: translateY(-6px); }
+  .app__screen figcaption { margin-top: 16px; display: flex; flex-direction: column; gap: 3px; }
+  .app__screen figcaption b { font-size: 15px; color: var(--ink); font-weight: 700; }
+  .app__screen figcaption span { font-size: 13px; color: var(--slate); max-width: 220px; margin-inline: auto; line-height: 1.4; }
+  .app__note { text-align: center; margin-top: 34px; font-size: 13px; color: var(--slate-soft); }
 
   /* ---------------- VALUE PROPS ---------------- */
   .props { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .prop-card { padding: 30px 28px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; transition: transform .25s, box-shadow .25s, border-color .25s; }
-  .prop-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--green-100); }
-  .prop-card__icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 13px; background: var(--green-050); color: var(--green); margin-bottom: 18px; }
+  .prop-card { padding: 30px 28px; transition: transform .25s, box-shadow .25s, border-color .25s; }
+  .prop-card:hover { transform: translateY(-4px); box-shadow: var(--sh-look); border-color: var(--tint-edge); }
+  .prop-card__icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 13px; background: var(--tint); color: var(--blue); margin-bottom: 18px; }
   .prop-card__icon svg { width: 24px; height: 24px; }
   .prop-card h3 { margin-bottom: 9px; }
-  .prop-card p { color: var(--muted); font-size: 15.5px; }
+  .prop-card p { color: var(--slate); font-size: 15.5px; }
 
   /* ---------------- STEPS ---------------- */
-  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 26px; counter-reset: s; }
-  .step { display: flex; gap: 20px; padding: 26px 24px; background: #fff; border: 1px solid var(--line-cream); border-radius: var(--radius); transition: transform .25s, box-shadow .25s; }
-  .step:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-  .step__n { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--coral); flex: none; width: 44px; height: 44px; border-radius: 12px; background: var(--coral-soft); display: grid; place-items: center; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 22px; }
+  .step { display: flex; gap: 20px; padding: 26px 24px; transition: transform .25s, box-shadow .25s; }
+  .step:hover { transform: translateY(-3px); box-shadow: var(--sh-look); }
+  .step__n { font-size: 18px; font-weight: 800; color: var(--blue); flex: none; width: 44px; height: 44px; border-radius: 12px; background: var(--tint); display: grid; place-items: center; letter-spacing: -0.02em; }
   .step__top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin-bottom: 7px; }
-  .step__time { font-size: 12.5px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; color: var(--green-600); background: var(--green-050); padding: 3px 9px; border-radius: 100px; }
-  .step__body p { color: var(--muted); font-size: 15px; }
+  .step__time { font-size: 12px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--blue); background: var(--tint); padding: 3px 9px; border-radius: 100px; }
+  .step__body p { color: var(--slate); font-size: 15px; }
 
   /* ---------------- MEASURE ---------------- */
   .measure { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-  .measure-col { padding: 32px 30px; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; }
-  .measure-col:last-child { background: var(--cream-soft); border-color: var(--line-cream); }
+  .measure-col { padding: 32px 30px; }
   .measure-col__head { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 8px; }
-  .measure-col__head h3 { font-size: 22px; }
-  .measure-col__sub { color: var(--muted); font-size: 15px; margin-bottom: 22px; }
-  .pill { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .02em; padding: 5px 11px; border-radius: 100px; }
-  .pill--green { background: var(--green); color: #fff; }
-  .pill--coral { background: var(--coral-soft); color: #9a4f31; }
+  .measure-col__sub { color: var(--slate); font-size: 15px; margin-bottom: 22px; }
+  .pill { font-size: 12px; font-weight: 600; letter-spacing: .01em; padding: 6px 12px; border-radius: 100px; }
+  .pill--blue { background: var(--blue); color: #fff; }
+  .pill--ghost { background: var(--tint); color: var(--blue); }
   .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-  .chip { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 100px; background: var(--green-050); color: var(--green-700); font-weight: 500; font-size: 15px; }
-  .chip__i { display: grid; place-items: center; width: 18px; height: 18px; color: var(--green); }
-  .chip__i svg { width: 15px; height: 15px; }
-  .chip--more { background: var(--green); color: #fff; font-style: italic; font-family: var(--serif); }
-  .chip--outline { background: #fff; border: 1px solid var(--line-cream); color: var(--body); }
+  .chip { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 100px; background: var(--tint); color: var(--blue-dark); font-weight: 600; font-size: 14.5px; }
+  .chip__i { display: grid; place-items: center; width: 16px; height: 16px; color: var(--blue); }
+  .chip__i svg { width: 14px; height: 14px; }
+  .chip--more { background: var(--blue); color: #fff; }
+  .chip--outline { background: #fff; border: 1px solid var(--border); color: var(--ink); }
 
-  /* ---------------- CASE ---------------- */
+  /* ---------------- CASE (dark) ---------------- */
+  .section--dark { background: linear-gradient(160deg, #0F172A, #1E293B); color: #CBD5E1; }
+  .section--dark h2 { color: #fff; }
+  .section--dark .eyebrow { color: var(--blue-soft); }
+  .section--dark .eyebrow::before { background: var(--blue-soft); }
+  .section--dark .accent { color: #93C5FD; }
+  .section--dark .lede { color: #94A3B8; }
   .case { display: grid; grid-template-columns: 1.1fr 1fr; gap: 26px; }
-  .case__chart, .case__story { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: 26px 28px; }
-  .case__meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 13px; color: #9FC3B0; margin-bottom: 16px; font-weight: 500; }
+  .case__chart, .case__story { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: var(--r-card); padding: 26px 28px; }
+  .case__meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 13px; color: #94A3B8; margin-bottom: 16px; font-weight: 500; }
   .case__svg { width: 100%; height: 180px; }
-  .case__legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 14px; font-size: 13px; color: #B9D2C5; }
+  .case__legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 14px; font-size: 13px; color: #94A3B8; }
   .lg { display: inline-block; width: 18px; height: 4px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
-  .lg--stable { background: #fff; }
-  .lg--drift { background: var(--coral); }
-  .case__flag { display: flex; flex-direction: column; gap: 10px; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,.14); }
-  .case__flag-pill { align-self: flex-start; background: var(--coral); color: #fff; font-weight: 600; font-size: 13px; padding: 5px 13px; border-radius: 100px; }
-  .case__flag p { color: #EAF1ED; font-size: 16px; }
-  .case__flag strong { color: #fff; }
+  .lg--stable { background: #fff; } .lg--drift { background: #60A5FA; }
+  .case__flag { display: flex; flex-direction: column; gap: 10px; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .case__flag-pill { align-self: flex-start; background: var(--blue); color: #fff; font-weight: 600; font-size: 13px; padding: 5px 13px; border-radius: 100px; }
+  .case__flag p { color: #E2E8F0; font-size: 16px; } .case__flag strong { color: #fff; }
   .case__timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
   .case__timeline li { display: flex; flex-direction: column; gap: 2px; padding-left: 18px; position: relative; }
-  .case__timeline li::before { content: ""; position: absolute; left: 0; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--coral); }
-  .case__timeline li:not(:last-child)::after { content: ""; position: absolute; left: 3.5px; top: 14px; bottom: -14px; width: 1px; background: rgba(255,255,255,.18); }
+  .case__timeline li::before { content: ""; position: absolute; left: 0; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: #60A5FA; }
+  .case__timeline li:not(:last-child)::after { content: ""; position: absolute; left: 3.5px; top: 14px; bottom: -14px; width: 1px; background: rgba(255,255,255,.16); }
   .case__tag { font-weight: 600; font-size: 13.5px; color: #fff; }
-  .case__d { font-size: 14.5px; color: #B9D2C5; }
+  .case__d { font-size: 14.5px; color: #94A3B8; }
 
   /* ---------------- QUOTES ---------------- */
   .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .quote { margin: 0; padding: 30px 28px; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; display: flex; flex-direction: column; }
-  .quote blockquote { margin: 0 0 22px; font-family: var(--serif); font-size: 18.5px; line-height: 1.5; color: var(--ink); font-weight: 400; }
+  .quote { margin: 0; padding: 30px 28px; display: flex; flex-direction: column; }
+  .quote blockquote { margin: 0 0 22px; font-size: 18px; line-height: 1.55; color: var(--ink); font-weight: 500; letter-spacing: -0.01em; }
   .quote figcaption { margin-top: auto; display: flex; flex-direction: column; }
-  .quote__n { font-weight: 600; color: var(--green); }
-  .quote__m { font-size: 14px; color: var(--muted); }
+  .quote__n { font-weight: 700; color: var(--blue); }
+  .quote__m { font-size: 14px; color: var(--slate); }
 
   /* ---------------- PRICING ---------------- */
   .plans { display: grid; grid-template-columns: 1.05fr 1fr; gap: 22px; align-items: start; }
-  .plan { position: relative; padding: 34px 32px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: #fff; }
-  .plan--feature { border: 1.5px solid var(--green); box-shadow: var(--shadow-md); }
-  .plan__flag { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .02em; color: #fff; background: var(--green); padding: 5px 13px; border-radius: 100px; margin-bottom: 18px; }
-  .plan__flag--ghost { background: var(--coral-soft); color: #9a4f31; }
+  .plan { position: relative; padding: 34px 32px; border-radius: var(--r-hero); }
+  .plan--feature { background: linear-gradient(150deg, #2F6BF0, var(--blue-dark)); color: #fff; box-shadow: var(--sh-blue); }
+  .plan--feature h3, .plan--feature .plan__price .amt { color: #fff; }
+  .plan__flag { display: inline-block; font-size: 12px; font-weight: 600; color: #fff; background: rgba(255,255,255,.18); padding: 5px 13px; border-radius: 100px; margin-bottom: 18px; }
+  .plan__flag--ghost { background: var(--tint); color: var(--blue); }
   .plan h3 { font-size: 24px; }
   .plan__price { display: flex; align-items: baseline; gap: 8px; margin-top: 14px; }
-  .plan__price .amt { font-family: var(--serif); font-size: 48px; font-weight: 500; color: var(--ink); letter-spacing: -.02em; }
-  .plan__price .per { color: var(--muted); font-size: 15px; font-weight: 500; }
-  .plan__sub { color: var(--muted); font-size: 14.5px; margin-top: 6px; }
+  .plan__price .amt { font-size: 50px; font-weight: 800; color: var(--ink); letter-spacing: -.03em; }
+  .plan__price .per { color: rgba(255,255,255,.78); font-size: 15px; font-weight: 500; }
+  .plan:not(.plan--feature) .plan__price .per { color: var(--slate); }
+  .plan__sub { font-size: 14.5px; margin-top: 6px; color: rgba(255,255,255,.78); }
+  .plan:not(.plan--feature) .plan__sub { color: var(--slate); }
   .plan__cta { width: 100%; margin: 22px 0 8px; }
-  .plan__list { list-style: none; margin: 14px 0 0; padding: 18px 0 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 13px; }
-  .plan__list li { display: flex; gap: 11px; align-items: flex-start; font-size: 15px; color: var(--body); }
-  .plan__list li span { flex: none; color: var(--green); margin-top: 3px; }
+  .plan__list { list-style: none; margin: 14px 0 0; padding: 18px 0 0; border-top: 1px solid rgba(255,255,255,.2); display: flex; flex-direction: column; gap: 13px; }
+  .plan:not(.plan--feature) .plan__list { border-top-color: var(--border); }
+  .plan__list li { display: flex; gap: 11px; align-items: flex-start; font-size: 15px; }
+  .plan--feature .plan__list li { color: rgba(255,255,255,.92); }
+  .plan:not(.plan--feature) .plan__list li { color: var(--slate); }
+  .plan__list li span { flex: none; margin-top: 3px; }
+  .plan--feature .plan__list li span { color: #fff; }
+  .plan:not(.plan--feature) .plan__list li span { color: var(--blue); }
   .plan__list li span svg { width: 16px; height: 16px; }
 
-  .compare { margin-top: 26px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 30px; }
-  .compare__head { font-weight: 600; color: var(--ink); margin-bottom: 16px; }
+  .compare { margin-top: 26px; padding: 28px 30px; }
+  .compare__head { font-weight: 700; color: var(--ink); margin-bottom: 16px; }
   .compare__list { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-direction: column; }
-  .compare__list li { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px dashed var(--line); font-size: 15px; color: var(--muted); }
-  .compare__list li b { color: var(--ink); font-weight: 600; white-space: nowrap; }
-  .compare__foot { font-size: 15.5px; color: var(--body); }
-  .compare__foot b { color: var(--green); }
-  .finely { margin-top: 18px; font-size: 12.5px; color: var(--muted); line-height: 1.6; max-width: 820px; }
+  .compare__list li { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px dashed var(--border); font-size: 15px; color: var(--slate); }
+  .compare__list li b { color: var(--ink); font-weight: 700; white-space: nowrap; }
+  .compare__foot { font-size: 15.5px; color: var(--slate); } .compare__foot b { color: var(--blue); }
+  .finely { margin-top: 18px; font-size: 12.5px; color: var(--slate-soft); line-height: 1.6; max-width: 820px; }
 
   /* ---------------- AREA ---------------- */
   .area { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px,5vw,56px); align-items: center; }
   .area__stats { display: flex; flex-wrap: wrap; gap: 30px; margin: 28px 0 22px; }
-  .area__stats b { display: block; font-family: var(--serif); font-size: 34px; color: var(--green); font-weight: 500; line-height: 1; }
-  .area__stats span { font-size: 13.5px; color: var(--muted); }
-  .area__note { font-size: 15px; color: var(--muted); }
-  .area__note a { color: var(--green); font-weight: 600; }
+  .area__stats b { display: block; font-size: 34px; font-weight: 800; color: var(--blue); line-height: 1; letter-spacing: -.03em; }
+  .area__stats span { font-size: 13.5px; color: var(--slate); }
+  .area__note { font-size: 15px; color: var(--slate); } .area__note a { color: var(--blue); font-weight: 600; }
   .area__chips { display: flex; flex-wrap: wrap; gap: 12px; }
-  .area-chip { display: inline-flex; align-items: center; gap: 9px; padding: 13px 20px; border-radius: 100px; background: var(--cream); border: 1px solid var(--line-cream); font-weight: 500; color: var(--ink); font-size: 15.5px; }
-  .area-chip span { color: var(--coral); }
-  .area-chip svg { width: 17px; height: 17px; }
+  .area-chip { display: inline-flex; align-items: center; gap: 9px; padding: 13px 20px; border-radius: 100px; background: var(--page); border: 1px solid var(--border); font-weight: 600; color: var(--ink); font-size: 15.5px; }
+  .area-chip span { color: var(--blue); display: inline-flex; } .area-chip svg { width: 17px; height: 17px; }
 
   /* ---------------- FAQ ---------------- */
   .faq { max-width: 820px; }
-  .faq__list { border-top: 1px solid var(--line-cream); }
-  .faq__item { border-bottom: 1px solid var(--line-cream); }
-  .faq__item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 22px 4px; font-family: var(--serif); font-size: clamp(18px,2.3vw,21px); color: var(--ink); font-weight: 460; }
+  .faq__list { border-top: 1px solid var(--border); }
+  .faq__item { border-bottom: 1px solid var(--border); }
+  .faq__item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 22px 4px; font-size: clamp(17px,2.2vw,20px); color: var(--ink); font-weight: 700; letter-spacing: -0.02em; }
   .faq__item summary::-webkit-details-marker { display: none; }
   .faq__plus { position: relative; flex: none; width: 22px; height: 22px; }
-  .faq__plus::before, .faq__plus::after { content: ""; position: absolute; background: var(--green); border-radius: 2px; transition: transform .25s; }
+  .faq__plus::before, .faq__plus::after { content: ""; position: absolute; background: var(--blue); border-radius: 2px; transition: transform .25s; }
   .faq__plus::before { left: 0; top: 10px; width: 22px; height: 2px; }
   .faq__plus::after { left: 10px; top: 0; width: 2px; height: 22px; }
   .faq__item[open] .faq__plus::after { transform: rotate(90deg); opacity: 0; }
-  .faq__a { padding: 0 4px 24px; max-width: 680px; }
-  .faq__a p { color: var(--muted); font-size: 16px; }
-  .faq__item[open] summary { color: var(--green); }
+  .faq__a { padding: 0 4px 24px; max-width: 700px; }
+  .faq__a p { color: var(--slate); font-size: 16px; }
+  .faq__item[open] summary { color: var(--blue); }
 
-  /* ---------------- CONTACT ---------------- */
-  .cta { text-align: center; }
-  .cta .section-head, .cta__copy { margin-inline: auto; }
-  .cta__copy { max-width: 660px; }
+  /* ---------------- CONTACT (blue) ---------------- */
+  .section--cta { background: linear-gradient(150deg, #2F6BF0 0%, var(--blue-dark) 100%); position: relative; overflow: clip; }
+  .section--cta::after { content: ""; position: absolute; top: -160px; right: -120px; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.14), transparent 70%); }
+  .cta { text-align: center; position: relative; z-index: 1; }
+  .cta__copy { max-width: 660px; margin-inline: auto; }
   .cta h2 { color: #fff; font-size: clamp(32px,5vw,52px); }
-  .cta .lede { color: #B9D2C5; margin-inline: auto; }
-  .cta .eyebrow { justify-content: center; }
+  .cta .eyebrow { justify-content: center; color: #fff; } .cta .eyebrow::before { background: #fff; }
+  .cta .lede { color: rgba(255,255,255,.85); margin-inline: auto; }
   .cta__actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 30px; }
-  .cta__mail { background: transparent; color: #EAF1ED; border: 1px solid rgba(255,255,255,.28); }
-  .cta__mail:hover { background: rgba(255,255,255,.08); }
-  .cta__shield { display: inline-flex; align-items: center; gap: 9px; margin-top: 24px; font-size: 13.5px; color: #9FC3B0; }
+  .cta__mail { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.34); }
+  .cta__mail:hover { background: rgba(255,255,255,.1); }
+  .cta__shield { display: inline-flex; align-items: center; gap: 9px; margin-top: 24px; font-size: 13.5px; color: rgba(255,255,255,.8); }
   .cta__shield svg { width: 16px; height: 16px; }
 
   /* ---------------- FOOTER ---------------- */
-  .footer { background: #122a20; color: #aebfb5; padding: clamp(48px,6vw,72px) 0 30px; }
+  .footer { background: #0B1220; color: #94A3B8; padding: clamp(48px,6vw,72px) 0 30px; }
   .footer__inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; }
+  .brand--light .brand__word { color: #fff; }
   .footer__brand p { margin-top: 16px; font-size: 14.5px; max-width: 320px; line-height: 1.6; }
-  .brand--light { color: #fff; }
-  .footer__col h4 { font-family: var(--sans); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: #7f968a; margin: 0 0 16px; font-weight: 600; }
-  .footer__col a { display: flex; align-items: center; gap: 9px; text-decoration: none; color: #cdd9d2; font-size: 14.5px; padding: 6px 0; transition: color .15s; }
+  .footer__col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #64748B; margin: 0 0 16px; font-weight: 700; }
+  .footer__col a { display: flex; align-items: center; gap: 9px; text-decoration: none; color: #CBD5E1; font-size: 14.5px; padding: 6px 0; transition: color .15s; }
   .footer__col a:hover { color: #fff; }
   .footer__col a svg { width: 16px; height: 16px; flex: none; }
-  .footer__base { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.1); font-size: 13px; color: #7f968a; }
+  .footer__base { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.08); font-size: 13px; color: #64748B; }
 
   /* ---------------- STICKY CTA ---------------- */
-  .sticky-cta { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 90; display: none; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 14px 12px 20px; background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-lg); animation: slideUp .35s ease; }
+  .sticky-cta { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 90; display: none; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 14px 12px 20px; background: #fff; border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--sh-md); animation: slideUp .35s ease; }
   .sticky-cta__txt { display: flex; flex-direction: column; line-height: 1.2; }
-  .sticky-cta__txt b { font-family: var(--serif); font-size: 18px; color: var(--ink); }
-  .sticky-cta__txt span { font-size: 12.5px; color: var(--muted); }
+  .sticky-cta__txt b { font-size: 18px; color: var(--ink); font-weight: 800; letter-spacing: -0.02em; }
+  .sticky-cta__txt span { font-size: 12.5px; color: var(--slate); }
   .sticky-cta .btn { padding: 12px 18px; font-size: 14.5px; white-space: nowrap; }
   @keyframes slideUp { from { transform: translateY(120%); } to { transform: none; } }
 
+  /* ---------------- FILM MODAL ---------------- */
+  .film-modal { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 20px; }
+  .film-modal__backdrop { position: absolute; inset: 0; background: rgba(15,23,42,.74); backdrop-filter: blur(6px); animation: fadeIn .3s ease; }
+  .film-modal__box { position: relative; width: min(960px, 96vw); border-radius: 18px; overflow: hidden; box-shadow: var(--sh-md); background: #0B1220; animation: popIn .35s cubic-bezier(.2,.8,.2,1); }
+  .film-modal__box video { width: 100%; display: block; aspect-ratio: 16/9; background: #0B1220; }
+  .film-modal__close { position: absolute; top: 10px; right: 10px; z-index: 2; width: 42px; height: 42px; border-radius: 50%; border: none; background: rgba(255,255,255,.16); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; backdrop-filter: blur(6px); }
+  .film-modal__close:hover { background: rgba(255,255,255,.3); }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+  @keyframes popIn { from{opacity:0; transform: scale(.94)} to{opacity:1; transform:none} }
+
   /* ---------------- RESPONSIVE ---------------- */
-  @media (max-width: 960px) {
+  @media (max-width: 980px) {
     .nav__links, .nav__cta { display: none; }
     .nav__burger { display: flex; }
     .hero__top { flex-direction: column; align-items: flex-start; }
     .hero__actions { align-items: flex-start; width: 100%; }
+    .app__top { grid-template-columns: 1fr; gap: 36px; }
+    .app__hero-phone { order: -1; }
+    .app__gallery { grid-template-columns: repeat(2, 1fr); }
     .props, .quotes { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr; }
     .measure, .case, .plans, .area { grid-template-columns: 1fr; }
@@ -696,20 +758,21 @@ const faqs = [
     .hero__btns { width: 100%; }
     .hero__btns .btn { flex: 1 1 auto; justify-content: center; }
     .cta__actions .btn, .cta__actions { width: 100%; }
+    .app__gallery { grid-template-columns: 1fr 1fr; gap: 18px; }
     .footer__inner { grid-template-columns: 1fr; gap: 26px; }
     .footer__base { justify-content: flex-start; }
-    .plan__price .amt { font-size: 40px; }
+    .plan__price .amt { font-size: 42px; }
   }
 </style>
 
 <script>
-  // --- nav scroll state ---
+  // nav scroll state
   const nav = document.getElementById('nav');
   const onScroll = () => nav?.setAttribute('data-state', window.scrollY > 12 ? 'scrolled' : 'top');
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  // --- mobile menu ---
+  // mobile menu
   const burger = document.getElementById('burger');
   const menu = document.getElementById('mobile-menu');
   burger?.addEventListener('click', () => {
@@ -721,39 +784,27 @@ const faqs = [
     a.addEventListener('click', () => { menu.hidden = true; burger?.setAttribute('aria-expanded', 'false'); })
   );
 
-  // --- "Watch the film" modal ---
+  // "Watch the film" modal
   const filmBtn = document.getElementById('watchFilm');
   const filmModal = document.getElementById('filmModal');
   const filmVideo = document.getElementById('filmVideo');
-  const openFilm = () => {
-    if (!filmModal) return;
-    filmModal.hidden = false;
-    document.body.style.overflow = 'hidden';
-    if (filmVideo) { filmVideo.currentTime = 0; filmVideo.play().catch(() => {}); }
-  };
-  const closeFilm = () => {
-    if (!filmModal) return;
-    filmModal.hidden = true;
-    document.body.style.overflow = '';
-    if (filmVideo) filmVideo.pause();
-  };
+  const openFilm = () => { if (!filmModal) return; filmModal.hidden = false; document.body.style.overflow = 'hidden'; if (filmVideo) { filmVideo.currentTime = 0; filmVideo.play().catch(() => {}); } };
+  const closeFilm = () => { if (!filmModal) return; filmModal.hidden = true; document.body.style.overflow = ''; if (filmVideo) filmVideo.pause(); };
   filmBtn?.addEventListener('click', openFilm);
   filmModal?.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', closeFilm));
   window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && filmModal && !filmModal.hidden) closeFilm(); });
 
-  // --- scroll reveal ---
+  // scroll reveal
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
   document.querySelectorAll('.reveal:not(.in)').forEach((el) => io.observe(el));
 
-  // --- sticky CTA: show after hero scrolls out (small screens) ---
+  // sticky CTA after hero
   const sticky = document.getElementById('stickyCta');
   const hero = document.querySelector('.hero');
   if (sticky && hero) {
-    const so = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { sticky.hidden = e.isIntersecting; });
-    }, { threshold: 0, rootMargin: '-40% 0px 0px 0px' });
+    const so = new IntersectionObserver((entries) => { entries.forEach((e) => { sticky.hidden = e.isIntersecting; }); }, { threshold: 0, rootMargin: '-40% 0px 0px 0px' });
     so.observe(hero);
   }
 </script>
