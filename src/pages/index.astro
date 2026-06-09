@@ -62,24 +62,24 @@ const annualIncludes = [
   "Up to 4 family members covered",
   "12 home visits a year",
   "Continuous monitoring + longitudinal record",
-  "Same-day virtual doctor review of every reading",
+  "Every reading screened — same-day doctor review on anything flagged",
   "Member-rate doctor consults + partner labs",
   "Family report in the app + on WhatsApp",
 ];
 const singleIncludes = [
   "1 home visit · readings for up to 2 people",
   "1 doctor follow-up call within the week",
-  "Same-day virtual doctor review of every reading",
+  "Every reading screened — same-day doctor review on anything flagged",
   "Convert to the annual plan anytime",
 ];
 
 const faqs = [
   { q: "Why subscription, not pay-per-visit?", a: "Because prevention is a trend, not a snapshot. A subscription means twelve visits a year, so every reading lands beside your last eleven — that's what lets us catch drift before it becomes a diagnosis. Pay-per-visit gives you a number; the annual plan gives you a story. You can still try us with a single visit first, and convert anytime." },
-  { q: "Who actually visits the home?", a: "A trained companion — background-checked, ID-verified and put through our six-week home-care protocol. You see the same faces each visit. When blood needs to be drawn, a registered Nursing Assistant attends instead. Every reading is then reviewed by a doctor virtually, the same day." },
+  { q: "Who actually visits the home?", a: "A trained companion — background-checked, ID-verified and put through our six-week home-care protocol. You see the same faces each visit. When blood needs to be drawn, a registered Nursing Assistant attends instead. Every reading is screened the same day, and a doctor reviews anything that looks off." },
   { q: "Which areas do you serve?", a: "We're live in Dwarka and Faridabad, with an average travel radius of about 30 minutes. Tell us your locality on WhatsApp and we'll confirm the next available slot." },
   { q: "Is my family's data private?", a: "Yes. Thuna is DPDPA-compliant. Your records are consented, structured and used only to track your health over time and flag drift for doctor review. Lab work runs through NABL-accredited partner labs, and we never sell your data." },
   { q: "What about doctor consults and lab tests?", a: "They sit on top of the subscription at member rates — discounted versus market and billed only when used. If a trend flags something, we line up a virtual doctor consult (from ₹299) or order the right deeper test from an NABL-accredited partner lab (HbA1c from ₹349, lipid profile from ₹399), often drawn at home. Only when your trend warrants it — never a fixed schedule." },
-  { q: "What if there's an emergency?", a: "Emergency ambulance routing is included (partner-billed), and if a reading needs urgent attention our doctor review flags it the same day and routes you onward. Thuna is preventive monitoring, not a 24/7 emergency room — but you're never left to interpret a worrying number on your own." },
+  { q: "What if there's an emergency?", a: "Emergency ambulance routing is included (partner-billed), and if a reading needs urgent attention it's flagged the same day and a doctor reviews it, routing you onward. Thuna is preventive monitoring, not a 24/7 emergency room — but you're never left to interpret a worrying number on your own." },
   { q: "How does cancellation work?", a: "Cancel anytime — there's no lock-in. The annual plan is the best way to build a longitudinal record, and the single-visit option lets you try Thuna once before committing to the year." },
 ];
 
@@ -149,7 +149,7 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
         <p class="opening__sub reveal">
           Thuna brings the check-up home — every month — and reads the trend, not the snapshot.
           The small drifts an annual visit sleeps through are exactly the ones we're built to catch.
-          <strong>Twelve home visits a year, every reading reviewed by a doctor.</strong>
+          <strong>Twelve home visits a year, every reading screened, and a doctor on anything flagged.</strong>
         </p>
       </div>
     </section>
@@ -412,7 +412,7 @@ const Wordmark = `<span class="brand__mark">${I.mark}</span><span class="brand__
     <div class="wrap wrap--wide footer__inner">
       <div class="footer__brand">
         <a class="brand brand--light" href="#top" aria-label="thuna.care home" set:html={Wordmark}></a>
-        <p>Care that stays with you. Twelve home visits a year, every reading reviewed by a doctor — for Indian families.</p>
+        <p>Care that stays with you. Twelve home visits a year, every reading screened, a doctor on anything flagged — for Indian families.</p>
       </div>
       <div class="footer__col">
         <h4>Talk to us</h4>
